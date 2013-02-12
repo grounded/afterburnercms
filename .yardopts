@@ -1,0 +1,6 @@
+--title "Afterburner CMS"
+--markup-provider=kramdown
+--markup=markdown
+-
+README.md
+contributing.md

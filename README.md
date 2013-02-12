@@ -1,9 +1,9 @@
 # ABC — Afterburner CMS
 ------
 
-We make building sites as easy as 1-2-3.
+## We make building sites as easy as 1-2-3.
 
-## 1. Install the gem.
+### 1. Install the gem.
 
 Grab it off of rubygems with:
 
@@ -23,10 +23,10 @@ Or fetch it directly from Github:
 gem 'abc', :git => 'git://github.com/afterburnercms/afterburnercms.com'
 ```
 
-## 2. ???
+### 2. ???
 
 TODO: Fill this in
 
-## 3. Profit!
+### 3. Profit!
 
 ![Please!](http://i2.kym-cdn.com/photos/images/newsfeed/000/264/200/acb.jpg)

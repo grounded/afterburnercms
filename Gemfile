@@ -13,3 +13,9 @@ group :development, :test do
   gem 'rspec'
   gem 'simplecov'
 end
+
+group :development do
+  gem 'yard', "~> 0.8.4.1"
+  gem 'rdoc'
+  gem 'kramdown'
+end
