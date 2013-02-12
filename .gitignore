@@ -13,6 +13,8 @@ capybara-*.html
 /pkg/
 /test/dummy/
 /spec/tmp/*
+.yardoc
+doc/
 **.orig
 rerun.txt
 pickle-email-*.html
