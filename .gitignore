@@ -1,3 +1,5 @@
+# Get rid of Gemfile.lock, which is inappropriate in a gem.
+Gemfile.lock
 *.rbc
 *.sassc
 .sass-cache
