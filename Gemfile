@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+
 gemspec
 
 # Declare any dependencies that are still in development here instead of in
@@ -11,7 +12,12 @@ gemspec
 
 group :development, :test do
   gem 'rspec'
+  gem 'rspec-rails'
   gem 'simplecov'
+  gem 'capybara'
+  gem 'combustion', github: 'pat/combustion'
+  gem 'sqlite3'
+  gem 'pry'
 end
 
 group :development do
