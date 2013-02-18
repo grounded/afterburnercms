@@ -30,3 +30,8 @@ TODO: Fill this in
 ### 3. Profit!
 
 ![Please!](http://i2.kym-cdn.com/photos/images/newsfeed/000/264/200/acb.jpg)
+
+## Development
+To run the tests:
+
+    rspec spec
