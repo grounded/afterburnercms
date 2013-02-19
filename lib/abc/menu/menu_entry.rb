@@ -1,4 +1,4 @@
-module ABC
+module Abc
   # A MenuEntry is the class that actually holds entries to the {Menu} class.
   # This is potentially one of many subtypes that can be registered
   # ({Menuable}s). Note that these do not define entry points; those are done

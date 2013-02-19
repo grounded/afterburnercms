@@ -1,4 +1,4 @@
-module ABC
+module Abc
   # Path is an object that represents a valid entry point to a viewable. This
   # is a mostly invisible object that's created when you set a custom URL on a
   # {MenuEntry}, but this makes it possible to also add custom, non-canonical

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount ABC::Engine => '/'
+  mount Abc::Engine => '/'
 end

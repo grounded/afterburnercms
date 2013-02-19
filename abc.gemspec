@@ -4,7 +4,7 @@ require File.expand_path('../lib/abc/version', __FILE__)
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "abc"
-  s.version     = ABC::VERSION
+  s.version     = Abc::VERSION
   s.authors     = ["Rob Yurkowski"]
   s.email       = ["rob@yurkowski.net"]
   s.homepage    = ""

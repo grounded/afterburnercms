@@ -1,4 +1,4 @@
-module ABC
+module Abc
   # Menuable is the class that Datatypes implement for themselves when they
   # should present themselves as valid types of {MenuEntry}.
   class Menuable

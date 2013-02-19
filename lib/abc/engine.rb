@@ -1,7 +1,7 @@
 require 'rails'
 
-module ABC
+module Abc
   class Engine < Rails::Engine
-    isolate_namespace ABC
+    isolate_namespace Abc
   end
 end

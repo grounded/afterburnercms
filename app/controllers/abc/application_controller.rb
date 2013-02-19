@@ -1,6 +1,6 @@
 require 'action_controller'
 
-module ABC
+module Abc
   class ApplicationController < ActionController::Base
   end
 end

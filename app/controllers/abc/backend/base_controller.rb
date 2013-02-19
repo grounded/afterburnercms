@@ -1,4 +1,4 @@
-module ABC
+module Abc
   module Backend
     class BaseController < ApplicationController
       def index
