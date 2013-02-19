@@ -40,7 +40,7 @@ module Abc
         end
 
         it "allows an alternate root element" do
-          menu.menu_element = :div 
+          menu.menu_element = :div
           menu.to_html.should match(/\A<div/)
         end
 
