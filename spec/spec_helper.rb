@@ -3,19 +3,15 @@ SimpleCov.start do
   add_filter "/spec/"
 end
 
-require 'pry'
-
 require 'rubygems'
-require 'bundler'
-
-require 'rails'
+require 'bundler/setup'
 
 Bundler.require :default, :test
 
 require 'capybara/rspec'
 
-require 'abc'
-Combustion.initialize!
+# require 'abc'
+Combustion.initialize! :action_view
 
 require 'rspec/rails'
-require 'capybara/rails'
+require 'capybara/rspec'

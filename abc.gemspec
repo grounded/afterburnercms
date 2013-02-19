@@ -18,5 +18,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 1.9.3' # that's right.
 
-  s.add_dependency 'rails', '~>3.2.12'
+  # you got it, rails 4.
+  s.add_dependency 'railties', '>= 4.0.0.beta'
+  s.add_dependency 'actionpack', '>= 4.0.0.beta'
+  s.add_dependency 'activemodel', '>= 4.0.0.beta'
 end
