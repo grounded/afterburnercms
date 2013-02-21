@@ -4,34 +4,35 @@ require 'abc/menu/menu'
 class MockMenuEntry
   include ActionView::Helpers::TagHelper
   def initialize(name); @name = name; end
-  def to_html(list_el = :li); content_tag(list_el, @name).html_safe; end
+  def to_html; content_tag(@list_element_pair.last, @name).html_safe; end
+  def list_element_pair=(_); @list_element_pair = _; end
 end
 
 module Abc
   describe Menu do
     let(:entry1) { MockMenuEntry.new("node 1") }
     let(:entry2) { MockMenuEntry.new("node 2") }
-    let(:menu) { Menu.new([entry1, entry2]) }
+    let(:menu) { Menu.new(:children => [entry1, entry2]) }
 
     describe "listing" do
 
       it "lists nothing when empty" do
-        subject.nodes.should be_empty
+        subject.children.should be_empty
       end
 
       it "lists root nodes" do
-        menu.nodes.should == [entry1, entry2]
+        menu.children.should == [entry1, entry2]
       end
     end
 
     describe "rendering" do
       describe "HTML" do
-        it "asks its nodes to render themselves" do
+        it "asks its children to render themselves" do
           entry1.should_receive(:to_html).and_return("<li>node 1</li>".html_safe)
           menu.to_html
         end
 
-        it "draws its nodes in order" do
+        it "draws its children in order" do
           menu.to_html.should == "<nav><ul>%s%s</ul></nav>" % [entry1.to_html, entry2.to_html]
         end
 

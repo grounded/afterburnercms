@@ -6,16 +6,16 @@ module Abc
   describe MenuEntry do
     describe "rendering" do
       describe "HTML" do
-        let(:menu_item) { MenuEntry.new(:title => "ABC 123") }
-        let(:child) { OpenStruct.new(:to_html => "<li>Test 123</li>".html_safe) }
+        let(:menu_item) { MenuEntry.new(:title => "Root") }
+        let(:child) { MenuEntry.new(:title => "Child") }
 
         it "renders itself" do
-          menu_item.to_html.should == "<li>ABC 123</li>"
+          menu_item.to_html.should == "<li>Root</li>"
         end
 
         it "renders with the list enumerator of list_element_pair" do
           menu_item.list_element_pair = [:nav, :div]
-          menu_item.to_html.should == "<div>ABC 123</div>"
+          menu_item.to_html.should == "<div>Root</div>"
         end
 
         it "raises an error if its content is not marked html_safe" do
@@ -24,17 +24,16 @@ module Abc
         end
 
         context "with children" do
+          before { menu_item.stub!(:children).and_return([child]) }
           it "renders its children" do
-            menu_item.stub!(:children).and_return([child])
-            menu_item.to_html.should == "<li>ABC 123<ul><li>Test 123</li></ul></li>"
+            menu_item.to_html.should == "<li>Root<ul><li>Child</li></ul></li>"
           end
 
           it "wraps children in the passed list element" do
-            pending
+            menu_item.list_element_pair = [:nav, :div]
+            menu_item.to_html.should == "<div>Root<nav><div>Child</div></nav></div>"
           end
-
         end
-          
       end
     end
   end
