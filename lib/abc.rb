@@ -1,5 +1,4 @@
-# ABC is the Afterburner CMS namespace.
-#
-#
-module ABC
+require 'abc/engine'
+
+module Abc
 end

@@ -1,4 +1,4 @@
-# ABC — Afterburner CMS
+# ABC - Afterburner CMS
 ------
 
 ## We make building sites as easy as 1-2-3.
