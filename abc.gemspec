@@ -1,6 +1,8 @@
 # Maintain your gem's version:
 require File.expand_path('../lib/abc/version', __FILE__)
 
+rails_version = '>= 4.0.0.beta'
+
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "abc"
@@ -18,8 +20,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 1.9.3' # that's right.
 
-  # you got it, rails 4.
-  s.add_dependency 'railties', '>= 4.0.0.beta'
-  s.add_dependency 'actionpack', '>= 4.0.0.beta'
-  s.add_dependency 'activemodel', '>= 4.0.0.beta'
+  s.add_dependency 'railties',      rails_version
+  s.add_dependency 'activesupport', rails_version
+  s.add_dependency 'actionpack',    rails_version
+  s.add_dependency 'activemodel',   rails_version
 end
