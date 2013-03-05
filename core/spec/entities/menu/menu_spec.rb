@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'abc/menu/menu'
+require 'menu/menu'
 
 module Abc
   describe Menu do

@@ -1,10 +1,11 @@
 require 'spec_helper'
-require 'abc/view/viewable_presenter'
+require 'menu/path'
 
 module Abc
-  describe ViewablePresenter do
+  describe Path do
     it "exists" do
       true.should be_true
     end
   end
 end
+

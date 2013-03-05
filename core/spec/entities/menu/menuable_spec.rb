@@ -1,11 +1,10 @@
 require 'spec_helper'
-require 'abc/menu/path'
+require 'menu/menuable'
 
 module Abc
-  describe Path do
+  describe Menuable do
     it "exists" do
       true.should be_true
     end
   end
 end
-

@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'abc/menu/menuable'
+require 'view/viewable'
 
 module Abc
-  describe Menuable do
+  describe Viewable do
     it "exists" do
       true.should be_true
     end

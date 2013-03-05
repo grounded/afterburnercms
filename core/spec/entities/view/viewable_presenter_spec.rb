@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'abc/view/viewable'
+require 'view/viewable_presenter'
 
 module Abc
-  describe Viewable do
+  describe ViewablePresenter do
     it "exists" do
       true.should be_true
     end
