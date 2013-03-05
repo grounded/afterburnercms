@@ -10,5 +10,5 @@ Bundler.require :default, :test
 
 require 'capybara/rspec'
 
-Combustion.initialize! :action_view
+Combustion.initialize! :action_view, :active_model, :action_controller
 require 'rspec/rails'
