@@ -20,3 +20,4 @@ doc/
 **.orig
 rerun.txt
 pickle-email-*.html
+spec/internal/log
