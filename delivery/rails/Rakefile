@@ -7,4 +7,5 @@ require 'bundler/setup'
 
 Bundler.require :default, :development, :test
 
+Combustion.initialize! :action_view, :active_model, :action_controller
 Combustion::Application.load_tasks
