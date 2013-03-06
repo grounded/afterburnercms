@@ -32,6 +32,15 @@ TODO: Fill this in
 ![Please!](http://i2.kym-cdn.com/photos/images/newsfeed/000/264/200/acb.jpg)
 
 ## Development
-To run the tests:
+To run the tests inside a subproject (i.e. `/core`):
 
-    rspec spec
+``` shell
+bundle install
+rspec spec
+```
+
+To run all tests:
+
+``` shell
+./build.sh
+```
