@@ -31,7 +31,7 @@ module Abc
               # TODO: These need to be menu_entry presenters.
               # How to keep decoupled?
               buffer.safe_concat child.to_html
-            end if menu.children.any?
+            end
           end
         end.html_safe
       end
