@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'abc/presenters/html/menu_presenter'
 
 class MockMenuEntry
   include ActionView::Helpers::TagHelper

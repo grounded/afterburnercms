@@ -13,7 +13,7 @@ module Abc
         def initialize(menu, options = {})
           self.menu = menu
           self.menu_element = options[:menu_element] || :nav
-          self.list_element_pair = options[:list_element_pair] ||= [:ul, :li]
+          self.list_element_pair = options[:list_element_pair] || [:ul, :li]
         end
 
         # Outputs the menu in HTML format.

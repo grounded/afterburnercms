@@ -1,5 +1,5 @@
 # Maintain your gem's version:
-require File.expand_path('../lib/abc/package', __FILE__)
+require File.expand_path('lib/abc/package', File.dirname(__FILE__))
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
