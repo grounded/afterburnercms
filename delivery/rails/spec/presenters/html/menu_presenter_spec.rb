@@ -4,24 +4,41 @@ require 'presenters/abc/html/menu_presenter'
 class MenuEntryMock
   include ActionView::Helpers::TagHelper
   def initialize(name); @name = name; end
-  # TODO: Replace this once children are properly presented.
-  def to_html; content_tag(@list_element_pair.last, @name).html_safe; end
-  def list_element_pair=(_); @list_element_pair = _; end
+  def title; @title ||= rand(30).times.map{|i| ('A'..'Z').to_a.sample}.join end
+  attr_accessor :children
+end
+
+class MenuEntryPresenterMock
+  attr_accessor :menu_entry, :list_element_pair
+  def initialize(menu_entry, options)
+    @menu_entry = menu_entry
+    @list_element_pair = options[:list_element_pair]
+  end
+  def to_html; "<#{list_element_pair.last}>#{menu_entry.title}</#{list_element_pair.last}>"; end
 end
 
 class MenuMock
   attr_accessor :children
-  def initialize(opts = {}); @children = opts[:children] || []; end
+  def initialize(options = {}); @children = options[:children] || []; end
 end
 
 
 module Abc
   module Html
     describe MenuPresenter do
+      let(:list_element_pair) { [:ul, :li] }
       let(:entry1) { MenuEntryMock.new("node 1") }
+      let(:entry1_presenter) { MenuEntryPresenterMock.new(entry1, :list_element_pair => list_element_pair) }
       let(:entry2) { MenuEntryMock.new("node 2") }
+      let(:entry2_presenter) { MenuEntryPresenterMock.new(entry2, :list_element_pair => list_element_pair) }
       let(:menu) { MenuMock.new(:children => [entry1, entry2]) }
-      let(:presenter) { MenuPresenter.new(menu) }
+      let(:presenter_options) do
+        {
+          :menu_entry_presenter_class => MenuEntryPresenterMock,
+          :list_element_pair => list_element_pair
+        }
+      end
+      let(:presenter) { MenuPresenter.new(menu, presenter_options) }
       # TODO: Add specs for list element pair squawks, or refactor these into
       #       two separate param. How do we handle codependence, then?
       #       i.e. since this is a ul and an li, what if people change
@@ -29,12 +46,11 @@ module Abc
       #       clearer than it is at the moment?
 
       it "asks its children to render themselves" do
-        entry1.should_receive(:to_html).and_return("<li>node 1</li>".html_safe)
         presenter.to_html
       end
 
       it "draws its children in order" do
-        presenter.to_html.should == "<nav><ul>%s%s</ul></nav>" % [entry1.to_html, entry2.to_html]
+        presenter.to_html.should == "<nav><ul>%s%s</ul></nav>" % [entry1_presenter.to_html, entry2_presenter.to_html]
       end
 
       it "is considered HTML safe" do
@@ -46,9 +62,12 @@ module Abc
         presenter.to_html.should match(/\A<div/)
       end
 
-      it "allows an alternate list element pair" do
-        presenter.list_element_pair = [:menu, :div]
-        presenter.to_html.should match(/\A<nav><menu><div>/)
+      context 'with alternate list element pair' do
+        let(:list_element_pair) { [:menu, :div] }
+
+        it "allows" do
+          presenter.to_html.should match(/\A<nav><menu><div>/)
+        end
       end
     end
   end

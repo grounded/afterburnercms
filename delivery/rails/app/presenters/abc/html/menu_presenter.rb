@@ -7,12 +7,19 @@ module Abc
       include ActionView::Helpers::TagHelper
       include ActionView::Context
 
-      attr_accessor :menu, :menu_element, :list_element_pair
+      attr_accessor :menu, :menu_element, :list_element_pair, :menu_entry_presenter_class
 
       def initialize(menu, options = {})
+        options = {
+          :menu_element => :nav,
+          :list_element_pair => [:ul, :li],
+          :menu_entry_presenter_class => MenuEntryPresenter
+        }.merge(options)
+
         self.menu = menu
-        self.menu_element = options[:menu_element] || :nav
-        self.list_element_pair = options[:list_element_pair] || [:ul, :li]
+        self.menu_element = options[:menu_element]
+        self.list_element_pair = options[:list_element_pair]
+        self.menu_entry_presenter_class = options[:menu_entry_presenter_class]
       end
 
       # Outputs the menu in HTML format.
@@ -27,10 +34,9 @@ module Abc
             # TODO: Should they be? I'm not sure how we'd render without that.
             #       I think filtering would have to be at a finer level.
             self.menu.children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
-              child.list_element_pair = self.list_element_pair
-              # TODO: These need to be menu_entry presenters.
-              # How to keep decoupled?
-              buffer.safe_concat child.to_html
+              buffer.safe_concat(menu_entry_presenter_class.new(
+                child, :list_element_pair => list_element_pair
+              ).to_html)
             end
           end
         end.html_safe

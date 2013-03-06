@@ -9,8 +9,9 @@ module Abc
       attr_accessor :menu_entry, :list_element_pair
 
       def initialize(menu_entry, options = {})
+        options = {:list_element_pair => [:ul, :li]}.merge(options)
         self.menu_entry = menu_entry
-        self.list_element_pair = options[:list_element_pair] || [:ul, :li]
+        self.list_element_pair = options[:list_element_pair]
       end
 
       # Renders a menu item in HTML format, and, if it has children, renders those too.
@@ -33,11 +34,12 @@ module Abc
       #
       # @return [SafeBuffer] A safe string containing the MenuEntry and its children.
       def to_html
-        raise ActiveSupport::SafeBuffer::SafeConcatError unless (content = self.render_as_html).html_safe?
+        content = self.render_as_html
+        raise ActiveSupport::SafeBuffer::SafeConcatError unless content.html_safe?
 
         content_tag self.list_element_pair.last do
-          if self.menu_entry.children.any?
-            self.render_with_children_as_html(content)
+          if menu_entry_children.present?
+            render_with_children_as_html content
           else
             content
           end
@@ -51,12 +53,14 @@ module Abc
       # @param content [SafeBuffer] A safe string to use as the content of this, the parent {MenuEntry.
       # @return [SafeBuffer] A safe string to be rendered by the parent {Menu} or {MenuEntry}.
       def render_with_children_as_html(content)
-        content.safe_concat(content_tag(self.list_element_pair.first) do
-          self.menu_entry.children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
-            child_presenter = self.class.new(child, :list_element_pair => self.list_element_pair)
-            buffer.safe_concat child_presenter.to_html
-          end
-        end.html_safe)
+        content.safe_concat(
+          content_tag(self.list_element_pair.first) do
+            self.menu_entry_children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
+              child_presenter = self.class.new(child, :list_element_pair => self.list_element_pair)
+              buffer.safe_concat child_presenter.to_html
+            end
+          end.html_safe
+        )
       end
 
       # Render this {MenuItem} without children.
@@ -65,9 +69,11 @@ module Abc
       #
       # @returns [SafeBuffer] A safe string to be rendered or appended with children.
       def render_as_html
-        buffer = self.menu_entry.title
-        ERB::Util.h(buffer)
+        ERB::Util.h menu_entry_title
       end
+
+      delegate :children, :to => :menu_entry, :allow_nil => true, :prefix => true
+      delegate :title, :to => :menu_entry, :prefix => true
     end
   end
 end
