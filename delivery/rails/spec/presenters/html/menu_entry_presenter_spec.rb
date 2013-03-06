@@ -1,5 +1,5 @@
-require 'spec_helper'
-require 'ostruct'
+require 'tiny_spec_helper'
+require 'presenters/abc/html/menu_entry_presenter'
 
 class MockMenuEntry
   attr_accessor :children, :title
@@ -29,7 +29,7 @@ module Abc
       end
 
       context "with children" do
-        before { menu_item.stub!(:children).and_return([child]) }
+        before(:each) { menu_item.children = [child] }
         # TODO: Remove this diagnostic spec.
         it "child count should be one" do
           subject.menu_entry.children.count.should == 1

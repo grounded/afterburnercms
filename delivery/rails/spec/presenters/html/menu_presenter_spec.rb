@@ -1,13 +1,15 @@
-require 'spec_helper'
+require 'tiny_spec_helper'
+require 'presenters/abc/html/menu_presenter'
 
-class MockMenuEntry
+class MenuEntryMock
   include ActionView::Helpers::TagHelper
   def initialize(name); @name = name; end
+  # TODO: Replace this once children are properly presented.
   def to_html; content_tag(@list_element_pair.last, @name).html_safe; end
   def list_element_pair=(_); @list_element_pair = _; end
 end
 
-class MockMenu
+class MenuMock
   attr_accessor :children
   def initialize(opts = {}); @children = opts[:children] || []; end
 end
@@ -16,9 +18,9 @@ end
 module Abc
   module Html
     describe MenuPresenter do
-      let(:entry1) { MockMenuEntry.new("node 1") }
-      let(:entry2) { MockMenuEntry.new("node 2") }
-      let(:menu) { MockMenu.new(:children => [entry1, entry2]) }
+      let(:entry1) { MenuEntryMock.new("node 1") }
+      let(:entry2) { MenuEntryMock.new("node 2") }
+      let(:menu) { MenuMock.new(:children => [entry1, entry2]) }
       let(:presenter) { MenuPresenter.new(menu) }
       # TODO: Add specs for list element pair squawks, or refactor these into
       #       two separate param. How do we handle codependence, then?

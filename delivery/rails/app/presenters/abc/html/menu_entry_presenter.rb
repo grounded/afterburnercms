@@ -17,7 +17,7 @@ module Abc
       #
       # **A note on HTML safety:**
       #
-      # It is up to each menu item to check that it is rendering itself safely.
+      # It is up to each menu item presenter to check that it is rendering itself safely.
       # By default, most of the menu has to be declared safe, or else its
       # constituent tags won't render properly. So we declare vast swaths of the
       # menu HTML safe, and in truth these parts are. The parts that
@@ -54,8 +54,6 @@ module Abc
         content.safe_concat(content_tag(self.list_element_pair.first) do
           self.menu_entry.children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
             child_presenter = self.class.new(child, :list_element_pair => self.list_element_pair)
-            # puts self.list_element_pair.inspect
-            # puts child_presenter.inspect
             buffer.safe_concat child_presenter.to_html
           end
         end.html_safe)

@@ -28,6 +28,8 @@ module Abc
             #       I think filtering would have to be at a finer level.
             self.menu.children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
               child.list_element_pair = self.list_element_pair
+              # TODO: These need to be menu_entry presenters.
+              # How to keep decoupled?
               buffer.safe_concat child.to_html
             end if menu.children.any?
           end
