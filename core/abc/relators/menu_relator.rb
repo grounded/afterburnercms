@@ -1,5 +1,5 @@
-require 'entities/abc/menu/menu'
-require 'entities/abc/menu/menu_entry'
+require 'abc/entities/menu/menu'
+require 'abc/entities/menu/menu_entry'
 
 
 module Abc
