@@ -1,5 +1,4 @@
 require 'active_model'
-require_relative 'menu_entry'
 
 module Abc
 
@@ -17,11 +16,7 @@ module Abc
     attr_accessor :entries
 
     # Creates a new instance of the menu.
-    # @param attributes [Array] An array of menu entries as hashes.
-    def initialize(entries)
-      self.entries = entries.map { |entry|
-        MenuEntry.new(entry[:title], entry[:children])
-      }
+    def initialize
     end
 
   end
