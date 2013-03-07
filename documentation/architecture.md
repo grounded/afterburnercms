@@ -21,7 +21,7 @@ The architecture of Afterburner is quite a bit different from Rails. It may seem
 Keep two things in mind:
 
 1. When you're learning something new, it's natural that things will take a bit longer;
-2. Afterburner shifts code out of controllers and models and into Domain Controllers and Use Cases repsectively. You might wind up creating more files, but these files will be simpler and will make it easier to add, change, test, and refactor your code in the future. So, yes, you do have to create and manage a few extra files, but the trade-off is worth it. Trust us.
+2. Afterburner shifts code out of controllers and models and into Conductors and Commands respectively. You might wind up creating more files, but these files will be simpler and will make it easier to add, change, test, and refactor your code in the future. So, yes, you do have to create and manage a few extra files, but the trade-off is worth it. Trust us there.
 
 ## Sections
 
@@ -35,7 +35,7 @@ In Rails, our models are our chief entities. In Afterburner, our entities share 
 
 #### Commands
 
-Inside our business logic, we also have what are called `commands`. These are use case objects. In short, though, they are Plain Old Ruby Objects (*PORO*s) that take as arguments the different objects that they plan to act upon, and provide a `call` method to trigger its run. They provide a logical way to group the functionality or use cases of Afterburner (and of your application, too) *as it relates to the business logic of the app*. Note that this is not the layer that interfaces with either user- or data-facing APIs; it just implements the sometimes-complex rules that govern the relationships between the entities. These are stored inside `/core/commands`.
+Inside our business logic, we also have what are called `commands`. These are use case objects. In short, though, they are Plain Old Ruby Objects (*POROs*) that take as arguments the different objects that they plan to act upon, and provide a `call` method to trigger its run. They provide a logical way to group the functionality or use cases of Afterburner (and of your application, too) *as it relates to the business logic of the app*. Note that this is not the layer that interfaces with either user- or data-facing APIs; it just implements the sometimes-complex rules that govern the relationships between the entities. These are stored inside `/core/commands`.
 
 ### Delivery
 
@@ -49,6 +49,7 @@ You can write your delivery mechanisms any way you want, of course, but Afterbur
 - Controllers are located in `app/controllers`;
 - Presenters (sometimes called ViewModels) are located in `app/presenters`;
 - Conductors (sometimes called Domain Controllers) are located in `app/conductors`;
+- Repositories are located in `app/repositories`.
 
 #### Views
 
@@ -70,4 +71,22 @@ What we call Conductors are sometimes called Services, sometimes called Domain C
 
 If you'd like to do a bit more reading as to why these are valuable, Nicholas J. Henry gives a good outline in [Your Rails Application is Missing a Domain Controller](http://blog.firsthand.ca/2011/12/your-rails-application-is-missing.html) -- just note that we make a distinction between Facade Controllers and Use Case Controllers, the latter of which is a Command in our architecture.
 
+### Adapters
 
+Of all three of the sections, this is the most disparate section. Adapters are divided by folder, but data-facing APIs tend to be rather eclectic. You might have a folder in here that deals with an interface to the database, as well as a folder that contains an interface to socket-write to IRC, or to post to another REST API.
+
+So the crucial difference between Adapters and Deliveries, then, is that Deliveries have the capacity to send requests to Afterburner, whereas Adapters can only receive requests from Afterburner. Adapters can retrieve results and pass it back to the application, but they don't actually return any information to the user. That responsibility falls to a delivery mechanism.
+
+You'll note that this is slightly different from standard Hexagonal practice, whereby incoming requests from any quarter would be handled by what it calls an adapter, and any outgoing data would be handled by what they call a port. Unfortunately, we're somewhat constrained by Rails controllers which are hybrid ports *and* adapters, so in order to be consistent, we follow that hybridity on an architectural scale, and we will continue to do so until we have a better alternative.
+
+We have several default sections in Afterburner:
+
+- Persistence deals with... persistence, yep. This includes a few 
+    - 
+
+
+
+#### Persistence
+
+TODO: Flesh this out.
+TODO: This is where Repositories belong.
