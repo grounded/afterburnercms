@@ -1,4 +1,5 @@
-$:.push File.join(File.dirname(__FILE__), '..', 'app')
+$:.push File.expand_path('../../../../core', __FILE__)
+$:.push File.expand_path('../../app', __FILE__)
 
 require 'simplecov'
 SimpleCov.start do

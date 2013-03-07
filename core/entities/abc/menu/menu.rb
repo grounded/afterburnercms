@@ -1,4 +1,5 @@
 require 'active_model'
+require_relative 'menu_entry'
 
 module Abc
 
@@ -12,14 +13,15 @@ module Abc
   class Menu
     include ActiveModel::Model
 
-    # This holds a tree of children.
-    attr_accessor :children
+    # This holds a tree of entries.
+    attr_accessor :entries
 
     # Creates a new instance of the menu.
-    # @param attributes [Hash] A hash of attributes to be set on the menu.
-    def initialize(attributes = {})
-      super
-      self.children ||= []
+    # @param attributes [Array] An array of menu entries as hashes.
+    def initialize(entries)
+      self.entries = entries.map { |entry|
+        MenuEntry.new(entry[:title], entry[:children])
+      }
     end
 
   end
