@@ -12,9 +12,11 @@ module Abc
     include ::ActiveModel::Model
     attr_accessor :title, :children
 
-    def initialize(attributes = {})
-      super
-      self.children ||= []
+    def initialize(title, children)
+      self.title = title
+      self.children = children.map do |child|
+        self.class.new(child[:title], child[:children])
+      end if children
     end
 
   end

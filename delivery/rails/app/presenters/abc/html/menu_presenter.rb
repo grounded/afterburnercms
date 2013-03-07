@@ -27,7 +27,7 @@ module Abc
             # Reduce will concat into a first SafeBuffer here, so if the first
             # node is html_safe, this will produce expected outcome. And of course,
             # MenuEntries are expected to be html_safe.
-            menu_children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
+            menu_entries.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
               menu_entry_presenter = menu_entry_presenter_class.new(
                 child, :list_element_pair => list_element_pair
               )
@@ -62,7 +62,7 @@ module Abc
         list_element_pair.first
       end
 
-      delegate :children, :to => :menu, :prefix => true
+      delegate :entries, :to => :menu, :prefix => true
     end
   end
 end

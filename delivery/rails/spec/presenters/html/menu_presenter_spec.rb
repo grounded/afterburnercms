@@ -18,8 +18,8 @@ class MenuEntryPresenterMock
 end
 
 class MenuMock
-  attr_accessor :children
-  def initialize(options = {}); @children = options[:children] || []; end
+  attr_accessor :entries
+  def initialize(options = {}); @entries = options[:entries] || []; end
 end
 
 
@@ -31,7 +31,7 @@ module Abc
       let(:entry1_presenter) { MenuEntryPresenterMock.new(entry1, :list_element_pair => list_element_pair) }
       let(:entry2) { MenuEntryMock.new("node 2") }
       let(:entry2_presenter) { MenuEntryPresenterMock.new(entry2, :list_element_pair => list_element_pair) }
-      let(:menu) { MenuMock.new(:children => [entry1, entry2]) }
+      let(:menu) { MenuMock.new(:entries => [entry1, entry2]) }
       let(:presenter_options) do
         {
           :menu_entry_presenter_class => MenuEntryPresenterMock,
@@ -45,7 +45,7 @@ module Abc
       #       the ul but not the li? Is this something that our API can make
       #       clearer than it is at the moment?
 
-      it "asks its children to render themselves" do
+      it "asks its entries to render themselves" do
         presenter.to_html
       end
 
