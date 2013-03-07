@@ -37,7 +37,7 @@ module Abc
         content = self.render_as_html
         raise ActiveSupport::SafeBuffer::SafeConcatError unless content.html_safe?
 
-        content_tag self.list_element_pair.last do
+        content_tag(list_element_tag) do
           if menu_entry_children.present?
             render_with_children_as_html content
           else
@@ -54,13 +54,21 @@ module Abc
       # @return [SafeBuffer] A safe string to be rendered by the parent {Menu} or {MenuEntry}.
       def render_with_children_as_html(content)
         content.safe_concat(
-          content_tag(self.list_element_pair.first) do
-            self.menu_entry_children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
-              child_presenter = self.class.new(child, :list_element_pair => self.list_element_pair)
+          content_tag(list_container_tag) do
+            menu_entry_children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
+              child_presenter = self.class.new(child, :list_element_pair => list_element_pair)
               buffer.safe_concat child_presenter.to_html
             end
           end.html_safe
         )
+      end
+
+      def list_container_tag
+        list_element_pair.first
+      end
+
+      def list_element_tag
+        list_element_pair.last
       end
 
       # Render this {MenuItem} without children.

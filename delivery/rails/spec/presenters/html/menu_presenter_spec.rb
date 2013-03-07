@@ -40,7 +40,7 @@ module Abc
       end
       let(:presenter) { MenuPresenter.new(menu, presenter_options) }
       # TODO: Add specs for list element pair squawks, or refactor these into
-      #       two separate param. How do we handle codependence, then?
+      #       two separate param. How do we handle co-dependence, then?
       #       i.e. since this is a ul and an li, what if people change
       #       the ul but not the li? Is this something that our API can make
       #       clearer than it is at the moment?
@@ -65,7 +65,7 @@ module Abc
       context 'with alternate list element pair' do
         let(:list_element_pair) { [:menu, :div] }
 
-        it "allows" do
+        it "uses them properly" do
           presenter.to_html.should match(/\A<nav><menu><div>/)
         end
       end

@@ -10,11 +10,7 @@ module Abc
       attr_accessor :menu, :menu_element, :list_element_pair, :menu_entry_presenter_class
 
       def initialize(menu, options = {})
-        options = {
-          :menu_element => :nav,
-          :list_element_pair => [:ul, :li],
-          :menu_entry_presenter_class => MenuEntryPresenter
-        }.merge(options)
+        options = default_initialize_options.merge(options)
 
         self.menu = menu
         self.menu_element = options[:menu_element]
@@ -26,17 +22,16 @@ module Abc
       #
       # @return An HTML-safe string containing the markup of the menu in question.
       def to_html
-        content_tag(self.menu_element) do
-          content_tag(self.list_element_pair.first) do
+        content_tag(menu_element) do
+          content_tag(list_container_tag) do
             # Reduce will concat into a first SafeBuffer here, so if the first
             # node is html_safe, this will produce expected outcome. And of course,
             # MenuEntries are expected to be html_safe.
-            # TODO: Should they be? I'm not sure how we'd render without that.
-            #       I think filtering would have to be at a finer level.
-            self.menu.children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
-              buffer.safe_concat(menu_entry_presenter_class.new(
+            menu_children.reduce(::ActiveSupport::SafeBuffer.new) do |buffer, child|
+              menu_entry_presenter = menu_entry_presenter_class.new(
                 child, :list_element_pair => list_element_pair
-              ).to_html)
+              )
+              buffer.safe_concat menu_entry_presenter.to_html
             end
           end
         end.html_safe
@@ -53,6 +48,21 @@ module Abc
         raise "List element pair should be symbols" unless pair.all? {|e| e.is_a?(Symbol)}
         @list_element_pair = pair
       end
+
+      private
+      def default_initialize_options
+        {
+          :menu_element => :nav,
+          :list_element_pair => [:ul, :li],
+          :menu_entry_presenter_class => MenuEntryPresenter
+        }.freeze
+      end
+
+      def list_container_tag
+        list_element_pair.first
+      end
+
+      delegate :children, :to => :menu, :prefix => true
     end
   end
 end
