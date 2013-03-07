@@ -11,6 +11,6 @@ for dir in $BUILD_DIRS
 do
   cd "$PROJECT_ROOT_DIR/$dir"
   set_gemfile
-  bundle install
+  if [[ "$BUNDLE" == "true" ]] ; then bundle ; fi
   bundle exec rspec spec
 done
