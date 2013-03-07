@@ -1,6 +1,11 @@
 --title "Afterburner CMS"
 --markup-provider=kramdown
 --markup=markdown
+core/**/*
+delivery/**/*
+lib/**/*
 -
 README.md
 contributing.md
+documentation/architecture.md
+
