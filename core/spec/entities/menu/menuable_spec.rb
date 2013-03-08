@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'menu/menuable'
+require 'abc/entities/menu/menuable'
 
 module Abc
   describe Menuable do

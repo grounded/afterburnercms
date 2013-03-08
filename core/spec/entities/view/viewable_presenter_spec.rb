@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'view/viewable_presenter'
+require 'abc/entities/view/viewable_presenter'
 
 module Abc
   describe ViewablePresenter do

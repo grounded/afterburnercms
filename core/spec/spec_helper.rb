@@ -1,6 +1,4 @@
-%w(entities interactors).each do |dir|
-  $:.push File.join(File.dirname(__FILE__), '..', 'abc', dir)
-end
+$:.push File.expand_path('../../', __FILE__)
 
 require 'simplecov'
 SimpleCov.start do

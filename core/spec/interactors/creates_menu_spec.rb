@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'creates_menu'
+require 'abc/interactors/creates_menu'
 
 module Abc
   module Interactors

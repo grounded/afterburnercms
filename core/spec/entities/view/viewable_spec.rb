@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'view/viewable'
+require 'abc/entities/view/viewable'
 
 module Abc
   describe Viewable do
