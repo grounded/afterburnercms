@@ -1,5 +1,5 @@
-$:.push File.expand_path('../../../../core', __FILE__)
-$:.push File.expand_path('../../app', __FILE__)
+$LOAD_PATH.push File.expand_path('../../../../core', __FILE__)
+$LOAD_PATH.push File.expand_path('../../app', __FILE__)
 
 require 'simplecov'
 SimpleCov.start do
