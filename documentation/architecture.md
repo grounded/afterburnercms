@@ -63,6 +63,10 @@ And that's the theory!
 
 ## Sections
 
+It's sometimes easier to see a visualization of the whole thing.
+
+![See the awesome magic here.](architecture.png)
+
 ### Business Logic
 
 Business logic is the part of the application that deals with use cases of the system, which in turn detail the interplay of entities.
