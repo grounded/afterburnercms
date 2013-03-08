@@ -21,7 +21,7 @@ Afterburner adopts a somewhat-compliant version of [Hexagonal Architecture](http
 
 ### I'm Reading the Words But They Don't Make Sense
 
-There are a few weighty terms in there, yes.
+There are a few weighty terms in there, yes. You could try [watching a video about it](http://confreaks.com/videos/759-rubymidwest2011-keynote-architecture-the-lost-years).
 
 ### Application (Business Logic)
 
