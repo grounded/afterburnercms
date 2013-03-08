@@ -2,10 +2,6 @@ source "http://rubygems.org"
 
 gemspec
 
-git 'git://github.com/rails/rails.git' do
-  gem 'activemodel'
-end
-
 group :development, :test do
   gem 'rspec'
   gem 'simplecov'

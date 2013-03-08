@@ -1,5 +1,3 @@
-require 'active_model'
-
 module Abc
   # A MenuEntry is the class that actually holds entries to the {Menu} class.
   # This is the parent type of the subtypes that can be registered
@@ -9,7 +7,6 @@ module Abc
   # then the interface should let you specify which you want to use for the
   # menu entry.
   class MenuEntry
-    include ::ActiveModel::Model
     attr_accessor :title, :children
 
     def initialize(title, children)
