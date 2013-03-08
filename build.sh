@@ -5,7 +5,7 @@ set_gemfile() {
 }
 
 export PROJECT_ROOT_DIR=`pwd`
-export BUILD_DIRS="core delivery/rails"
+export BUILD_DIRS="core delivery/backend"
 
 for dir in $BUILD_DIRS
 

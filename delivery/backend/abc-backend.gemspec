@@ -2,7 +2,7 @@ require File.expand_path('../../lib/abc/package', File.dirname(__FILE__))
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "abc-rails"
+  s.name        = "abc-backend"
   s.version     = Abc::VERSION
   s.authors     = Abc::AUTHORS
   s.email       = Abc::EMAILS
