@@ -25,7 +25,7 @@ There are a few weighty terms in there, yes. You could try [watching a video abo
 
 ### Application (Business Logic)
 
-Matt Wynne begins to explain in [The Problem with solutions](http://blog.mattwynne.net/2013/01/17/the-problem-with-solutions/) the split between what your application -- sometimes referred to 'business', 'business logic', or the 'domain' -- and the rest actually is. As he says:
+In [The Problem with solutions](http://blog.mattwynne.net/2013/01/17/the-problem-with-solutions/) Matt Wynne explains the split between what your application -- sometimes referred to 'business', 'business logic', or the 'domain' -- and the rest actually is. As he says:
 
 > In any software project, there are two main domains: the problem domain and the solution domain. The problem domain is where your customers live. The programmers and other technicians working on solving that problem operate in the solution domain.
 
@@ -122,4 +122,6 @@ We have several default sections in Afterburner:
 
 This deals with saving data so that it can be reused later. This includes a few subsections:
  
-##### Repositories are objects that deal with taking raw data and converting it into a format appropriate for the database, as well as persisting it; and vice versa, too. This is one of the spots where you'll frequently work when you create custom extensions. They are kept in `adapters/persistence/repositories`.
+##### Repositories
+
+Repositories are objects that deal with taking raw data and converting it into a format appropriate for the database, as well as persisting it; and vice versa, too. This is one of the spots where you'll frequently work when you create custom extensions. They are kept in `adapters/persistence/repositories`.
