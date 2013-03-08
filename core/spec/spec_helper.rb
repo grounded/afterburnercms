@@ -1,4 +1,6 @@
-%w(entities relators).each {|dir| $:.push File.join(File.dirname(__FILE__), '..', 'abc', dir) }
+%w(entities interactors).each do |dir|
+  $:.push File.join(File.dirname(__FILE__), '..', 'abc', dir)
+end
 
 require 'simplecov'
 SimpleCov.start do
