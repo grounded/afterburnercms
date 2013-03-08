@@ -1,3 +1,4 @@
+#!/bin/bash
 # Inspired heavily by Spree's build.sh. Thanks, Spree! You rock.
 set_gemfile() {
   export BUNDLE_GEMFILE="`pwd`/Gemfile"
