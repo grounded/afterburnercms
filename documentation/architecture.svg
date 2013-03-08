@@ -280,9 +280,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
      inkscape:cx="537.74918"
-     inkscape:cy="369.95337"
+     inkscape:cy="313.38483"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="874"
@@ -304,7 +304,72 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Boundaries">
+    <rect
+       style="color:#000000;fill:#dcffe4;fill-opacity:1;fill-rule:nonzero;stroke:#049500;stroke-width:2.90891646999999987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect6516"
+       width="534.66382"
+       height="613.85974"
+       x="-0.045541342"
+       y="0.17260708" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="470.59103"
+       y="27.088205"
+       id="text6518"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="470.59103"
+         y="27.088205"
+         id="tspan6524"
+         style="font-size:20px;text-align:center;text-anchor:middle">Delivery</tspan><tspan
+         sodipodi:role="line"
+         x="470.59103"
+         y="52.088203"
+         style="font-size:20px;text-align:center;text-anchor:middle"
+         id="tspan6569">Mechanism</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="602.80658"
+       y="28.102982"
+       id="text6518-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="602.80658"
+         y="28.102982"
+         style="font-size:20px;text-align:center;text-anchor:middle"
+         id="tspan6558">Afterburner</tspan></text>
+    <rect
+       style="color:#000000;fill:#ffdcea;fill-opacity:1;fill-rule:nonzero;stroke:#950039;stroke-width:3.08471704000000013;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect6562"
+       width="534.48804"
+       height="128.60872"
+       x="0.042358469"
+       y="615.44342" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="472.42059"
+       y="643.06799"
+       id="text6518-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="472.42059"
+         y="643.06799"
+         style="font-size:20px;text-align:center;text-anchor:middle"
+         id="tspan6569-8">Data</tspan><tspan
+         sodipodi:role="line"
+         x="472.42059"
+         y="668.06799"
+         style="font-size:20px;text-align:center;text-anchor:middle"
+         id="tspan6602">API</tspan></text>
+  </g>
+  <g
+     inkscape:label="Architecture Boxes and Arrows"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-308.2677)">
@@ -623,7 +688,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend);marker-start:url(#Arrow1Lstart)"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:none;marker-start:url(#Arrow1Lstart-8)"
        d="m 318.87741,654.36218 -69.75483,0"
        id="path4117-8-4"
        inkscape:connector-curvature="0"
@@ -642,13 +707,13 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 135.5,818.48477 0,109.75483"
+       d="m 135.5,928.2396 0,-109.75483"
        id="path4117-8-8-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 198.5,928.2396 0,-109.75483"
+       d="m 198.5,818.48477 0,109.75483"
        id="path4117-8-8-9-7"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
