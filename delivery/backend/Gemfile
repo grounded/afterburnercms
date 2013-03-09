@@ -16,6 +16,7 @@ group :development, :test do
   gem 'combustion', github: 'pat/combustion'
   gem 'sqlite3'
   gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do
