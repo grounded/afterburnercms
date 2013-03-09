@@ -34,13 +34,18 @@ TODO: Fill this in
 ## Development
 To run the tests inside a subproject (i.e. `/core`):
 
-``` shell
+```shell
 bundle install
 rspec spec
 ```
 
 To run all tests:
 
-``` shell
+```shell
 ./build.sh
+```
+
+You can also prepend `BUNDLE=true` when running `./build.sh` and it will install missing gems for all subprojects.
+```shell
+BUNDLE=true ./build.sh
 ```
