@@ -1,4 +1,4 @@
-require 'presenters/abc/html/page_presenter'
+require 'abc/html/page_presenter'
 require 'ostruct'
 
 module Abc
