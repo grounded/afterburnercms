@@ -28,5 +28,5 @@ group :development do
   gem 'kramdown'
 end
 
-gem 'abc-core', :path => '/home/rob/Sites/a/afterburnercms/core'
-gem 'abc-adapters', :path => '/home/rob/Sites/a/afterburnercms/adapters'
+gem 'abc-core', :path => '../../core'
+gem 'abc-adapters', :path => '../../adapters'
