@@ -5,6 +5,8 @@ gemspec
 group :development, :test do
   gem 'rspec'
   gem 'simplecov'
+  gem 'guard-shell'
+  gem 'rb-fsevent', '~> 0.9', :platform => :ruby
 end
 
 group :development do

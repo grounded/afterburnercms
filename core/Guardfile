@@ -1,0 +1,6 @@
+guard :shell do
+  watch(/\A.*\.(rb|erb|haml)\z/) do |m|
+    system "rspec spec"
+    system "date"
+  end
+end
