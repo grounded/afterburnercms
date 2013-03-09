@@ -23,4 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'activemodel',   Abc::RAILS_VERSION
 
   s.add_dependency 'haml-rails'
+
+  s.add_dependency 'abc-core', Abc::VERSION
+  s.add_dependency 'abc-adapters', Abc::VERSION
 end

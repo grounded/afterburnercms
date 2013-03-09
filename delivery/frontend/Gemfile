@@ -27,3 +27,6 @@ group :development do
   gem 'rdoc'
   gem 'kramdown'
 end
+
+gem 'abc-core', :path => '/home/rob/Sites/a/afterburnercms/core'
+gem 'abc-adapters', :path => '/home/rob/Sites/a/afterburnercms/adapters'

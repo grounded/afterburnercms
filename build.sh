@@ -5,7 +5,7 @@ set_gemfile() {
 }
 
 export PROJECT_ROOT_DIR=`pwd`
-export BUILD_DIRS="core delivery/backend delivery/frontend"
+export BUILD_DIRS="adapters core delivery/backend delivery/frontend"
 
 for dir in $BUILD_DIRS
 
