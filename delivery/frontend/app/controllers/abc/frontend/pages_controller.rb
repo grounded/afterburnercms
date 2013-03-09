@@ -1,3 +1,6 @@
+require 'ostruct'
+require 'abc/frontend/conductors/shows_page'
+
 module Abc
   module Frontend
     class PagesController < BaseController

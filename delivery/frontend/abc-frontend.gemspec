@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'actionpack',    Abc::RAILS_VERSION
   s.add_dependency 'activemodel',   Abc::RAILS_VERSION
 
-  s.add_dependency 'haml'
+  s.add_dependency 'haml-rails'
 end

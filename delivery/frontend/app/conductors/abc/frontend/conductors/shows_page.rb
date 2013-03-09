@@ -1,4 +1,4 @@
-require 'presenters/abc/html/page_presenter'
+require 'abc/html/page_presenter'
 require 'ostruct'
 
 module Abc
@@ -35,7 +35,7 @@ module Abc
         # Here, we can transform our params into the data we want to return
         # We could hit up any adapter or API we want.
         def data
-          params
+          OpenStruct.new(params)
         end
 
       end
