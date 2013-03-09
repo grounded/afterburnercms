@@ -21,3 +21,4 @@ doc/
 rerun.txt
 pickle-email-*.html
 spec/internal/log
+.rvmrc

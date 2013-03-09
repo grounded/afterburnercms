@@ -7,7 +7,7 @@ module Abc
       describe Text do
         let(:text) { "Afterburner" }
 
-        subject { Text.new(text) }
+        subject { Text.new(nil, text) }
 
         it 'encapsulates a block of text' do
           subject.text.should == text
@@ -18,7 +18,7 @@ module Abc
         end
 
         it 'accepts text in the initialize call' do
-          subject.class.new(text).to_s.should == text
+          subject.class.new(nil, text).to_s.should == text
         end
 
         it 'requires text in the initialize call' do
