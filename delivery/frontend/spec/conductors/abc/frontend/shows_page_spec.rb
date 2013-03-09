@@ -1,5 +1,5 @@
 require 'tiny_spec_helper'
-require 'conductors/shows_page'
+require 'abc/frontend/conductors/shows_page'
 require 'ostruct'
 
 module Abc
