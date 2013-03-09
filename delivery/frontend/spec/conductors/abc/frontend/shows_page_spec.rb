@@ -1,6 +1,5 @@
 require 'tiny_spec_helper'
 require 'abc/frontend/conductors/shows_page'
-require 'ostruct'
 
 class MockPagePresenter
   def initialize(vals); @vals = vals; end
