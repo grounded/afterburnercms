@@ -5,7 +5,7 @@ module Abc
   module Entities
     module Content
       describe Text do
-        let(:text) { rand(30).times.map{|i| ('A'..'Z').to_a.sample}.join }
+        let(:text) { "Afterburner" }
 
         subject { Text.new(text) }
 
