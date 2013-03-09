@@ -1,45 +1,27 @@
 require 'abc/entities/content/text'
+require 'hyperion'
 
-module Adapters
-  module Persistence
-    module Repositories
-      class Text
-        attr_reader :collection
+Hyperion.datastore = Hyperion.new_datastore(:memory)
 
-        def initialize(strategy=InMemoryStrategy)
-          @collection = []
-          extend strategy
-        end
+module Abc
+  module Adapters
+    module Persistence
+      module Repositories
+        class Text
 
-        module InMemoryStrategy
-          def find(id)
-            found = collection.detect do |item|
-              item[:id] == id
+          class << self
+            def store(values)
+              sync { Hyperion.save({:kind => :text}.merge(values)) }
             end
-            return nil unless found
-            Abc::Entities::Content::Text.new(found[:id], found[:text])
-          end
 
-          def store(text)
-            index = index_of(text)
-            collection[index] = hashify(text)
-            find(index)
-          end
+            def find(key)
+              sync { Hyperion.find_by_key(key) }
+            end
 
-          private
-          def hashify(text)
-            id = text.id || collection.length
-            { id: id, text: text.text }
-          end
+            def sync(&block)
+              block.call
+            end
 
-          def index_of(text)
-            existing_text = find(text.id)
-            return collection.length unless existing_text
-            collection.index(find(text.id))
-          end
-
-          def new_id
-            collection.length
           end
         end
       end

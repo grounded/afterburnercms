@@ -7,7 +7,7 @@ module Abc
       describe Text do
         let(:text) { "Afterburner" }
 
-        subject { Text.new(nil, text) }
+        subject { Text.new(text) }
 
         it 'encapsulates a block of text' do
           subject.text.should == text
@@ -18,11 +18,17 @@ module Abc
         end
 
         it 'accepts text in the initialize call' do
-          subject.class.new(nil, text).to_s.should == text
+          subject.class.new(text).to_s.should == text
         end
 
         it 'requires text in the initialize call' do
           expect { subject.class.new }.to raise_exception(ArgumentError)
+        end
+
+        it 'can be hashified' do
+          text1 = text
+          hsh = {:text => text1}
+          subject.class.new(text).to_hash.should == hsh
         end
       end
     end

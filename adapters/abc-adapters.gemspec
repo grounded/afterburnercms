@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9.3' # that's right.
 
   s.add_dependency 'abc', "~>#{Abc::VERSION}"
+  s.add_dependency 'hyperion-api'
 end

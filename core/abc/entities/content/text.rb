@@ -2,12 +2,14 @@ module Abc
   module Entities
     module Content
       class Text
-        attr_reader :id
         attr_accessor :text
 
-        def initialize(id, text)
-          @id = id
+        def initialize(text)
           @text = text
+        end
+
+        def to_hash
+          {:text => text}
         end
 
         alias_method :to_s, :text
