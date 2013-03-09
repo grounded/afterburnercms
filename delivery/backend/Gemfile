@@ -8,14 +8,18 @@ git 'git://github.com/rails/rails.git' do
   gem 'activemodel'
 end
 
-group :development, :test do
+group :test do
   gem 'rspec'
   gem 'rspec-rails', :require => false
   gem 'simplecov'
   gem 'capybara'
-  gem 'combustion', github: 'pat/combustion'
   gem 'sqlite3'
+end
+
+group :development, :test do
+  gem 'combustion', github: 'pat/combustion'
   gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do
