@@ -1,5 +1,3 @@
-require 'rails'
-
 module Abc
   module Frontend
     class Engine < Rails::Engine

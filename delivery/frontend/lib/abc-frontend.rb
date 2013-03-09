@@ -1,2 +1,3 @@
-require 'abc/frontend/engine'
+require 'rails'
 require 'haml-rails'
+require 'abc/frontend/engine'
