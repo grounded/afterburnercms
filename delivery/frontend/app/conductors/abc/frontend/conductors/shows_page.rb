@@ -35,7 +35,7 @@ module Abc
         # Here, we can transform our params into the data we want to return
         # We could hit up any adapter or API we want.
         def data
-          params
+          OpenStruct.new(params)
         end
 
       end
