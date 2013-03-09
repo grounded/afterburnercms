@@ -14,7 +14,6 @@ group :test do
   gem 'simplecov'
   gem 'capybara'
   gem 'sqlite3'
-  gem 'launchy'
 end
 
 group :development, :test do
