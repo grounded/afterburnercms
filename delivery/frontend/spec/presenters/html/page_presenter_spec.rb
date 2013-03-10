@@ -5,8 +5,14 @@ require 'ostruct'
 module Abc
   module Html
     describe PagePresenter do
-      subject { PagePresenter.new(OpenStruct.new(:id => 1)) }
-      its(:id) { should == 1 }
+      let(:page) do
+        p = mock('page')
+        p.stub(:to_s).and_return('foo')
+        p
+      end
+      subject { PagePresenter.new(page) }
+
+      its(:content) { should == 'foo' }
     end
   end
 end

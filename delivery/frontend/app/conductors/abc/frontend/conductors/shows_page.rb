@@ -1,5 +1,5 @@
 require 'abc/html/page_presenter'
-require 'ostruct'
+require 'abc/entities/content/text'
 
 module Abc
   module Frontend
@@ -35,7 +35,9 @@ module Abc
         # Here, we can transform our params into the data we want to return
         # We could hit up any adapter or API we want.
         def data
-          OpenStruct.new(params)
+          # TODO: For now we've mocked out a path in which we received a
+          # Text entity from some Interactor.
+          Abc::Entities::Content::Text.new("Welcome to page #{params[:id]}")
         end
 
       end
