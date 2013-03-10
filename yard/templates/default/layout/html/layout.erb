@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <%= erb(:headers) %>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans">
+    <script type="text/javascript" charset="utf-8">
+      (function($){
+        // YARD automatically creates a table of contents
+        // Let's place it inside .col1, instead of #content
+        $(document).ready(function(){
+          $('#toc').prependTo($('.col1'));
+          <% if options[:file] == 'extra_docs/Index.md' %>
+            $('#toc').hide();
+          <% end %>
+        });
+      })(jQuery);
+    </script>
+  </head>
+  <body>
+
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="header" class="clearfix">
+      <%#= erb(:breadcrumb) %>
+      <div id="logo">Afterburner CMS (v <%= Abc::VERSION %>)</div>
+      <%= erb(:search) %>
+    </div>
+
+    <div>
+      <iframe id="search_frame"></iframe>
+    </div>
+
+    <div id="content" class="clearfix">
+      <div class="col1">
+        <%= yieldall %>
+      </div>
+      <div class="col2">
+        <ul class="main_files clearfix">
+          <%= [
+            ['README', 'README'],
+            ['architecture', 'Architecture Details']
+          ].map{|(file, text)|
+            "<li>#{link_file(file, text)}</li>"
+          }.join
+          %>
+        </ul>
+      </div>
+    </div>
+
+    <%= erb(:footer) %>
+  </body>
+</html>

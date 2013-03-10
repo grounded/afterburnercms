@@ -1,11 +1,8 @@
---title "Afterburner CMS"
+--main README.md
+-e ./yard/setup.rb
 --markup-provider=kramdown
 --markup=markdown
-core/**/*
-delivery/**/*
-lib/**/*
+--asset documentation/architecture.png:architecture.png
 -
 README.md
-contributing.md
 documentation/architecture.md
-
