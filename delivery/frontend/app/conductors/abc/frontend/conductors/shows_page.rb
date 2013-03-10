@@ -1,5 +1,6 @@
 require 'abc/html/page_presenter'
 require 'abc/entities/content/text'
+require 'adapters/persistence/repositories/text'
 
 module Abc
   module Frontend
@@ -25,7 +26,8 @@ module Abc
 
         def initialize(params, options)
           self.options = {
-            :presenter_class => ::Abc::Html::PagePresenter
+            :presenter_class => ::Abc::Html::PagePresenter,
+            :repository_class => ::Abc::Adapters::Persistence::Repositories::Text
           }.merge(options)
 
           # Store these for future use
@@ -37,7 +39,9 @@ module Abc
         def data
           # TODO: For now we've mocked out a path in which we received a
           # Text entity from some Interactor.
-          Abc::Entities::Content::Text.new("Welcome to page #{params[:id]}")
+          # Here, we're persisting it just to test out the loading
+          options[:repository_class].store(Entities::Content::Text.new("Welcome to page #{params[:id]}"))
+          Entities::Content::Text.new(options[:repository_class].search.first[:text])
         end
 
       end

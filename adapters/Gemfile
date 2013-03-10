@@ -13,3 +13,5 @@ group :development do
   gem 'yard', "~> 0.8.4.1"
   gem 'rdoc'
 end
+
+gem 'abc', :path => '../'
