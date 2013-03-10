@@ -20,7 +20,7 @@ gem 'abc'
 Or fetch it directly from Github:
 
 ```ruby
-gem 'abc', :git => 'git://github.com/afterburnercms/afterburnercms.com'
+gem 'abc', :git => 'git://github.com/afterburnercms/afterburnercms.git'
 ```
 
 ### 2. ???
