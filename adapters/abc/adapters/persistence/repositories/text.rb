@@ -1,7 +1,4 @@
 require 'abc/entities/content/text'
-require 'hyperion'
-
-Hyperion.datastore = Hyperion.new_datastore(:memory)
 
 module Abc
   module Adapters

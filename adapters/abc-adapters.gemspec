@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'abc', "~>#{Abc::VERSION}"
   s.add_dependency 'hyperion-api'
+  s.add_dependency 'hyperion-sqlite'
 end
