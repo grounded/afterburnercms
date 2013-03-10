@@ -3,7 +3,7 @@ require 'abc/frontend/conductors/shows_page'
 
 class MockPagePresenter
   def initialize(vals); @vals = vals; end
-  def id; @vals.id; end
+  def content; @vals.to_s; end
 end
 
 module Abc
@@ -12,7 +12,7 @@ module Abc
       describe ShowsPage do
         it "returns a page presenter" do
           result = ShowsPage.call({:id => 1}, {:presenter_class => MockPagePresenter})
-          result[:page].id.should == 1
+          result[:page].content.should == "Welcome to page 1"
         end
       end
     end
