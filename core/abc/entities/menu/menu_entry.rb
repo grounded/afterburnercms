@@ -9,11 +9,11 @@ module Abc
   class MenuEntry
     attr_accessor :title, :children
 
-    def initialize(title, children)
+    def initialize(title, children = [])
       self.title = title
       self.children = children.map do |child|
         self.class.new(child[:title], child[:children])
-      end if children
+      end
     end
 
   end
