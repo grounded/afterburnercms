@@ -7,12 +7,13 @@ module Abc
     describe PagePresenter do
       let(:page) do
         p = mock('page')
-        p.stub(:to_s).and_return('foo')
+        p.stub(:title).and_return('foo')
         p
       end
+
       subject { PagePresenter.new(page) }
 
-      its(:content) { should == 'foo' }
+      its(:title) { should == 'foo' }
     end
   end
 end

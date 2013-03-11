@@ -1,6 +1,7 @@
 $LOAD_PATH.push File.expand_path('../../abc', __FILE__)
 require 'adapters/config'
-require 'adapters'
+require 'adapters/persistence/repositories/text'
+require 'adapters/persistence/repositories/page'
 
 module Abc
   module Adapters

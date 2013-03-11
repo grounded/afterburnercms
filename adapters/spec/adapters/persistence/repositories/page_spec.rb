@@ -4,9 +4,9 @@ module Abc
   module Adapters
     module Persistence
       module Repositories
-        describe Text do
+        describe Page do
           it "should be of kind page" do
-            Text.send(:kind).should == :text
+            Page.send(:kind).should == :page
           end
         end
       end

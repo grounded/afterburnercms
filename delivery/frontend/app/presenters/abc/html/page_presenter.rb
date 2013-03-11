@@ -5,8 +5,8 @@ module Abc
         @page = page
       end
 
-      def content
-        @page.to_s
+      def title
+        @page.title
       end
     end
   end

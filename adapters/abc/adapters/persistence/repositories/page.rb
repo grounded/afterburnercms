@@ -4,11 +4,11 @@ module Abc
   module Adapters
     module Persistence
       module Repositories
-        class Text < Base
+        class Page < Base
           class << self
             protected
             def kind
-              :text
+              :page
             end
           end
         end

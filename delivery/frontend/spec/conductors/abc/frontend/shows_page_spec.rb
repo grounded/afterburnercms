@@ -3,7 +3,7 @@ require 'abc/frontend/conductors/shows_page'
 
 class MockPagePresenter
   def initialize(vals); @vals = vals; end
-  def content; @vals.to_s; end
+  def title; @vals.title; end
 end
 
 class MockRepository
@@ -11,18 +11,27 @@ class MockRepository
   def self.search; [@obj]; end
 end
 
+class MockPageBuilder
+  def initialize(hash); @data = OpenStruct.new(hash); end
+  def call; @data; end
+end
+
+
 module Abc
   module Frontend
     module Conductors
       describe ShowsPage do
-        it "returns a page presenter" do
-          result = ShowsPage.call({:id => 1}, {
-            :presenter_class => MockPagePresenter,
-            :repository_class => MockRepository
-          })
+        let(:mocks) { { :repository_class => MockRepository,
+                        :presenter_classes => { :page => MockPagePresenter },
+                        :builder_classes => { :page => MockPageBuilder } } }
+        
+        let(:result) { ShowsPage.call({:id => 1}, mocks) }
+        let(:instance) { ShowsPage.send(:new, {:id => 1}, mocks) }
 
-          result[:page].content.should == "Welcome to page 1"
+        it "returns a page presenter" do
+          result[:page].title.should == "Welcome to page 1"
         end
+
       end
     end
   end
