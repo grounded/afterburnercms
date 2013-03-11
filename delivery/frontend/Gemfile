@@ -29,4 +29,4 @@ group :development do
 end
 
 gem 'abc-core', :path => '../../core'
-#gem 'abc-adapters', :path => '../../adapters'
+gem 'abc-adapters', :path => '../../adapters'

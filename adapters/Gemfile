@@ -1,0 +1,17 @@
+source "http://rubygems.org"
+
+gemspec
+
+group :development, :test do
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'pry'
+  gem 'pry-nav'
+end
+
+group :development do
+  gem 'yard', "~> 0.8.4.1"
+  gem 'rdoc'
+end
+
+gem 'abc', :path => '../'

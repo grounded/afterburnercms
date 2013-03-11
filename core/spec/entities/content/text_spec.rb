@@ -24,6 +24,12 @@ module Abc
         it 'requires text in the initialize call' do
           expect { subject.class.new }.to raise_exception(ArgumentError)
         end
+
+        it 'can be hashified' do
+          text1 = text
+          hsh = {:text => text1}
+          subject.class.new(text).to_hash.should == hsh
+        end
       end
     end
   end
