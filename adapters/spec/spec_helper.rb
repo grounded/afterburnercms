@@ -1,7 +1,4 @@
-$LOAD_PATH.push File.expand_path('../../../core', __FILE__)
-$LOAD_PATH.push File.expand_path('../../', __FILE__)
-require 'pry'
-require 'pry-nav'
+$LOAD_PATH.push File.expand_path('../../abc/', __FILE__)
 require 'abc-adapters'
 
 require 'simplecov'
