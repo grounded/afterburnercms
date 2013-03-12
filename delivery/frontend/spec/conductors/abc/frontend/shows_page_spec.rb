@@ -24,11 +24,15 @@ module Abc
         let(:mocks) { { :repository_class => MockRepository,
                         :presenter_classes => { :page => MockPagePresenter },
                         :builder_classes => { :page => MockPageBuilder } } }
-        
+
         let(:result) { ShowsPage.call({:id => 1}, mocks) }
         let(:instance) { ShowsPage.send(:new, {:id => 1}, mocks) }
 
-        it "returns a page presenter" do
+        it "returns a hash of presenters" do
+          expect(result).to be_kind_of Hash
+        end
+
+        it "should include a page presenter" do
           result[:page].title.should == "Welcome to page 1"
         end
 

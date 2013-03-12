@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Frontend" do
+  before(:each) { Abc::Adapters.enable_datastore! }
   describe "GET /page/1" do
     it "shows the page id" do
       visit abc_frontend.page_path(:id => 1)
