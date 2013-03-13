@@ -11,7 +11,7 @@ module Abc
 
     def initialize(title, children = [])
       self.title = title
-      self.children = children.map do |child|
+      self.children = Array(children).map do |child|
         self.class.new(child[:title], child[:children])
       end
     end
