@@ -10,7 +10,7 @@ module Abc
 
       def create
         # begin
-        ::Abc::Frontend::Conductors::AcceptsEmailSignupForm.call(params)
+        @data = OpenStruct.new(::Abc::Frontend::Conductors::AcceptsEmailSignupForm.call(params))
         # rescue
         #   render :action => :new and return
         # end

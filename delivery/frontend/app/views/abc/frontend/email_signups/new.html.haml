@@ -1,4 +1,4 @@
 %h1= @data.page.title
 = form_tag(abc_frontend.email_signups_path, :method => :post) do
-  = text_field_tag "Email"
+  = text_field_tag :'email_signup[email]', "Email"
   = submit_tag "Sign up"

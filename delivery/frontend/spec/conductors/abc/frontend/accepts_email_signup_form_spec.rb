@@ -13,6 +13,10 @@ module Abc
         it "returns a hash" do
           expect(result).to be_kind_of Hash
         end
+
+        it "returns a hash containing an email signup" do
+          result[:email_signup].should respond_to(:email)
+        end
       end
     end
   end

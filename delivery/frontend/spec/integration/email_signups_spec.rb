@@ -20,8 +20,8 @@ describe "Frontend" do
 
   describe "POST /email_signups" do
     it "should receive info from the form" do
-      post abc_frontend.email_signups_path(:method => :post), :email_sign_up => { :email => "rob@afterburnercms.com" }
-      expect(response).to render_template(:thank_you)
+      post abc_frontend.email_signups_path(:method => :post), :email_signup => { :email => "rob@afterburnercms.com" }
+      response.body.should have_content("You signed up as rob@afterburnercms.com")
     end
   end
 end
