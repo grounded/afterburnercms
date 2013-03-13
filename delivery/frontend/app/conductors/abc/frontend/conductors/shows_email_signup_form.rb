@@ -1,19 +1,12 @@
+require_relative 'base'
+
 module Abc
   module Frontend
     module Conductors
-      class ShowsEmailSignupForm
-        class << self
-          def call(params, options = {})
-            new(params, options).to_response
-          end
-        end
+      class ShowsEmailSignupForm < Base
 
         def to_response
           {:page => OpenStruct.new(:title => "Sign up to receive a notification")}
-        end
-
-        protected
-        def initialize(params, options)
         end
 
       end

@@ -1,3 +1,4 @@
+require_relative 'base'
 require 'abc/html/page_presenter'
 require 'abc/entities/pages/page'
 require 'adapters/persistence/repositories/page'
@@ -7,13 +8,7 @@ require 'ostruct'
 module Abc
   module Frontend
     module Conductors
-      class ShowsPage
-
-        class << self
-          def call(params, options = {})
-            new(params, options).to_response
-          end
-        end
+      class ShowsPage < Base
 
         # Wraps and organizes response to controller.
         def to_response
