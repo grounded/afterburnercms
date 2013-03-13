@@ -27,19 +27,13 @@ module Abc
         attr_writer :data
 
         def initialize(params, opts)
-          self.options = {
-            :repository_class => ::Abc::Adapters::Persistence::Repositories::Page,
-            :presenter_classes => { :page => ::Abc::Html::PagePresenter },
-            :builder_classes => { :page => ::Abc::Interactors::BuildsPage }
-          }.merge(opts)
+          self.params  = params
+          self.options = defaults.merge(opts)
 
           # Make these a bit prettier.
           @builders   = OpenStruct.new(options[:builder_classes])
           @presenters = OpenStruct.new(options[:presenter_classes])
           @repository = options[:repository_class]
-
-          # Store these for future use
-          self.params = params
 
           # Temporarily here, since we need to get the data from somewhere
           @repository.store(:title => "Welcome to page #{params[:id]}")
@@ -49,6 +43,14 @@ module Abc
         # hitting an adapter along the way.
         def data
           {}.merge(build_page)
+        end
+
+        def defaults
+          {
+            :repository_class => ::Abc::Adapters::Persistence::Repositories::Page,
+            :presenter_classes => { :page => ::Abc::Html::PagePresenter },
+            :builder_classes => { :page => ::Abc::Interactors::BuildsPage }
+          }.freeze
         end
 
         # Retrieve the required page from the database and construct it.j
