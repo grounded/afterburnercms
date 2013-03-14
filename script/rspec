@@ -1,0 +1,4 @@
+#!/bin/bash
+DIR="$(cd $(dirname "$0") && pwd)"
+
+$DIR/run bundle exec rspec spec

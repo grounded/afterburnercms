@@ -1,8 +1,8 @@
 language: ruby
 install:
-  - bundle install --without development
+  - ./script/bundle
 script:
-  - bundle exec rspec spec
+  - ./script/rspec
 notifications:
   email: false
   irc:

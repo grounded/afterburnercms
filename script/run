@@ -1,0 +1,8 @@
+#!/bin/bash
+DIR="$(cd $(dirname "$0") && pwd)"
+PROJECTS=`$DIR/projects`
+for PROJECT in ${PROJECTS[@]}
+do
+  echo "cd $DIR/../$PROJECT && $@"
+  cd $DIR/../$PROJECT && $@
+done
