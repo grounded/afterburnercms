@@ -4,9 +4,11 @@ gemspec
 
 group :development, :test do
   gem 'rspec'
-  gem 'simplecov'
-  gem 'pry'
-  gem 'pry-nav'
+  unless ENV['TRAVIS']
+    gem 'simplecov'
+    gem 'pry'
+    gem 'pry-nav'
+  end
 end
 
 group :development do

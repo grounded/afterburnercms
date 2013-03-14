@@ -1,4 +1,5 @@
 require 'hyperion'
+
 module Abc
   module Adapters
     module Config

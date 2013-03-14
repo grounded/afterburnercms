@@ -47,7 +47,7 @@ To run the tests inside a subproject (i.e. `/core`):
 
 ```shell
 bundle install
-rspec spec
+bundle exec rspec spec
 ```
 
 To run all tests:

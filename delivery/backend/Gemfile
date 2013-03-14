@@ -11,17 +11,28 @@ end
 group :test do
   gem 'rspec'
   gem 'rspec-rails', :require => false
-  gem 'simplecov'
+  unless ENV['TRAVIS']
+    gem 'simplecov'
+  end
   gem 'capybara'
-  gem 'sqlite3'
+  platforms :jruby do
+    gem 'activerecord-jdbcsqlite3-adapter'
+    gem 'jruby-openssl'
+  end
+
+  platforms :ruby do
+    gem 'sqlite3'
+  end
 end
 
 group :development, :test do
   gem 'combustion', github: 'pat/combustion'
-  gem 'pry'
-  gem 'pry-nav'
-  gem 'guard-shell'
-  gem 'rb-fsevent', '~> 0.9', :platform => :ruby
+  unless ENV['TRAVIS']
+    gem 'pry'
+    gem 'pry-nav'
+    gem 'guard-shell'
+    gem 'rb-fsevent', '~> 0.9', :platform => :ruby
+  end
 end
 
 group :development do

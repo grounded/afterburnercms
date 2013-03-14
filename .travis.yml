@@ -1,8 +1,19 @@
 language: ruby
-install:
-  - ./script/bundle
-script:
-  - ./script/rspec
+bundler_args: --without development
+before_install:
+  - cd $GEM
+  - export BUNDLE_GEMFILE="`pwd`/Gemfile"
+script: bundle exec rspec spec --colour
+rvm:
+  - 2.0.0
+  - 1.9.3
+  - rbx-19mode
+  - jruby-19mode
+env:
+  - GEM=adapters
+  - GEM=core
+  - GEM=delivery/backend
+  - GEM=delivery/frontend
 notifications:
   email: false
   irc:
@@ -15,8 +26,3 @@ notifications:
     on_failure: always
     rooms:
       - secure: "X5X39BTgXacSdc32F8mIjJKPqm5dZzmgZfJ14qYpJeMETTdA5JfByt2uCfU8\njJkkxT+XGWta0bSSlRIHQJO6pK26U94A95VYDX0jNuneKEnsoAsqJ6U0VY6v\nH5oxXMAZ2perP/FH9ZsPNR+ulyFfbMQCeGPJw5AXKZQqzf6qPOI="
-rvm:
-  - 2.0.0
-  - 1.9.3
-  - rbx-19mode
-  - jruby-19mode

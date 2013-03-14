@@ -1,4 +1,2 @@
 #!/bin/bash
-DIR="$(cd $(dirname "$0") && pwd)"
-
-$DIR/run bundle exec rspec spec
+"$(cd $(dirname "$0") && pwd)"/run bundle exec rspec spec --colour
