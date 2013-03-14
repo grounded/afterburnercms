@@ -46,17 +46,27 @@ mount Abc::Frontend::Engine => '/'
 To run the tests inside a subproject (i.e. `/core`):
 
 ```shell
-bundle install
+bundle
 bundle exec rspec spec
 ```
 
 To run all tests:
 
 ```shell
-./build.sh
+script/rspec
 ```
 
-You can also prepend `BUNDLE=true` when running `./build.sh` and it will install missing gems for all subprojects.
+To bundle install for all the projects:
 ```shell
-BUNDLE=true ./build.sh
+script/bundle
+```
+
+To run some command in all sub-projects:
+```shell
+script/run somecommand
+```
+
+To list out the sub-projects:
+```shell
+script/projects
 ```
