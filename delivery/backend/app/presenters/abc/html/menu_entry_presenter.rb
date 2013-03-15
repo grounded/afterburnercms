@@ -34,7 +34,7 @@ module Abc
       #
       # @return [SafeBuffer] A safe string containing the MenuEntry and its children.
       def to_html
-        content = self.render_as_html
+        content = render_as_html
         raise ActiveSupport::SafeBuffer::SafeConcatError unless content.html_safe?
 
         content_tag(list_element_tag) do
