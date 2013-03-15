@@ -17,7 +17,6 @@ group :test do
   gem 'capybara'
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
-    gem 'jruby-openssl'
   end
 
   platforms :ruby do
