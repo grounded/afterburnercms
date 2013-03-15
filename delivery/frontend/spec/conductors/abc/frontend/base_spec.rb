@@ -27,6 +27,10 @@ module Abc
         # it "should include a page presenter" do
         #   result[:page].title.should == "Sign up to receive a notification"
         # end
+
+        it "should not be run directly" do
+          ->{ Base.call({}) }.should raise_error ResponseNotSpecifiedError
+        end
       end
     end
   end
