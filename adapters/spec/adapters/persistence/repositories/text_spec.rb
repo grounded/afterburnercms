@@ -5,7 +5,7 @@ module Abc
     module Persistence
       module Repositories
         describe Text do
-          it "should be of kind page" do
+          it "should be of kind text" do
             Text.send(:kind).should == :text
           end
         end
