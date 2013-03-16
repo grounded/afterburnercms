@@ -1,4 +1,4 @@
-require_relative 'base'
+require 'abc'
 require 'abc/html/page_presenter'
 require 'abc/entities/pages/page'
 require 'adapters/persistence/repositories/page'
@@ -8,7 +8,7 @@ require 'ostruct'
 module Abc
   module Frontend
     module Conductors
-      class ShowsPage < Base
+      class ShowsPage < ::Abc::BaseConductor
 
         # Wraps and organizes response to controller.
         def to_response
