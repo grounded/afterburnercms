@@ -12,7 +12,7 @@ module Abc
           context "without kind" do
             let(:repo) { Base }
             it "should raise an error" do
-              ->{repo.send(:kind)}.should raise_error
+              lambda{ repo.send(:kind) }.should raise_error
             end
           end
 
