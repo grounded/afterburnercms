@@ -52,7 +52,7 @@ module Abc
         def build_page
           page_data = @repository.search.first
 
-          {:page => @builders.page.new(page_data).call}
+          {:page => @builders.page.call(page_data)}
         end
 
         # We could also chain more methods to our data method. Each should

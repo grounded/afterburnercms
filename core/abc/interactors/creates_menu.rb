@@ -1,21 +1,23 @@
-require 'abc/entities/menu/menu'
-require 'abc/entities/menu/menu_entry'
+require 'abc'
+require 'entities/menu/menu'
+require 'entities/menu/menu_entry'
 
 module Abc
   module Interactors
-    class CreatesMenu
+    class CreatesMenu < Abc::BaseInteractor
       attr_reader :menu
 
-      def initialize(menu_entries)
+      def to_response
+        menu
+      end
+
+      def initialize(menu_entries, options = {})
         @menu = Menu.new
         @menu.entries = menu_entries.map do |entry|
           MenuEntry.new entry[:title], entry[:children]
         end
       end
 
-      def call
-        menu
-      end
     end
   end
 end

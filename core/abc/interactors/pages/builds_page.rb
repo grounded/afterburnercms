@@ -1,16 +1,18 @@
-require 'abc/entities/pages/page'
+require 'abc'
+require 'entities/pages/page'
 
 module Abc
   module Interactors
-    class BuildsPage
+    class BuildsPage < Abc::BaseInteractor
       attr_reader :page
 
-      def initialize(data)
-        @page = Entities::Page.new(data[:title])
-      end
-
-      def call
+      def to_response
         page
+      end
+      
+      protected
+      def initialize(data, options = {})
+        @page = Entities::Page.new(data[:title])
       end
     end
   end

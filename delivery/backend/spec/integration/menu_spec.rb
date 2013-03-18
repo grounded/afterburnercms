@@ -8,7 +8,7 @@ describe "Menu" do
     }
     let(:menu_entries) { [{:title => "One", :children => children_for_one}] }
 
-    let(:menu) { Abc::Interactors::CreatesMenu.new(menu_entries).call }
+    let(:menu) { Abc::Interactors::CreatesMenu.call(menu_entries) }
     let(:present) { Abc::Html::MenuPresenter.new(menu).to_html }
 
     it "renders properly" do

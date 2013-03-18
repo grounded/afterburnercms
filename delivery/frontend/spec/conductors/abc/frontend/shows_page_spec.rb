@@ -12,8 +12,7 @@ class MockRepository
 end
 
 class MockPageBuilder
-  def initialize(hash); @data = OpenStruct.new(hash); end
-  def call; @data; end
+  def self.call(hash); OpenStruct.new(hash); end
 end
 
 
