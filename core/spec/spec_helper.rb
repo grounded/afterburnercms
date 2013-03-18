@@ -6,3 +6,5 @@ unless ENV['TRAVIS']
     add_filter "/spec/"
   end
 end
+
+require 'abc-core'

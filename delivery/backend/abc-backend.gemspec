@@ -21,4 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport', Abc::RAILS_VERSION
   s.add_dependency 'actionpack',    Abc::RAILS_VERSION
   s.add_dependency 'activemodel',   Abc::RAILS_VERSION
+  s.add_dependency 'abc',           Abc::VERSION
+  s.add_dependency 'abc-core',      Abc::VERSION
 end

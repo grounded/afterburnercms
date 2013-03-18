@@ -17,4 +17,6 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(spec)/})
 
   s.required_ruby_version = '>= 1.9.3' # that's right.
+
+  s.add_dependency 'abc', Abc::VERSION
 end

@@ -39,3 +39,6 @@ group :development do
   gem 'rdoc'
   gem 'kramdown'
 end
+
+gem 'abc', :path => '../../'
+gem 'abc-core', :path => '../../core'

@@ -1,5 +1,5 @@
 require 'tiny_spec_helper'
-require 'abc/interactors/creates_menu'
+require 'interactors/creates_menu'
 
 describe "Menu" do
   describe "when using an HTML presenter" do

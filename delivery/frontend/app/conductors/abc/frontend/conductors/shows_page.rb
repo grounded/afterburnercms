@@ -1,8 +1,8 @@
 require 'abc'
 require 'abc/html/page_presenter'
-require 'abc/entities/pages/page'
+require 'entities/pages/page'
 require 'adapters/persistence/repositories/page'
-require 'abc/interactors/pages/builds_page'
+require 'interactors/pages/builds_page'
 require 'ostruct'
 
 module Abc
