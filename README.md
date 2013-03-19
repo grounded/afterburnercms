@@ -1,6 +1,8 @@
 # ABC - Afterburner CMS
 ------
 
+[![Code Climate](https://codeclimate.com/github/grounded/afterburnercms.png)](https://codeclimate.com/github/grounded/afterburnercms)
+
 ## We make building sites as easy as 1-2-3.
 
 ### 1. Install the gem.
