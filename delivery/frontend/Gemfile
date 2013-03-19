@@ -34,6 +34,16 @@ group :development, :test do
   end
 end
 
+group :assets do
+  gem 'sprockets-rails', github: 'rails/sprockets-rails'
+  gem 'sass-rails',   github: 'rails/sass-rails'
+  gem 'coffee-rails', github: 'rails/coffee-rails'
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'haml', github: 'haml/haml', branch: 'stable'
+
 group :development do
   gem 'yard', "~> 0.8.4.1"
   gem 'rdoc'
