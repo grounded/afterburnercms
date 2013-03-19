@@ -5,19 +5,7 @@
 
 ### 1. Install the gem.
 
-Grab it off of rubygems with:
-
-```ruby
-gem install abc
-```
-
-Add it to an existing Rails project:
-
-```ruby
-gem 'abc'
-```
-
-Or fetch it directly from Github:
+Fetch it directly from Github:
 
 ```ruby
 gem 'abc', github: 'grounded/afterburnercms'
