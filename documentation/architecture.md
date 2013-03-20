@@ -73,11 +73,11 @@ Business logic is the part of the application that deals with use cases of the s
 
 #### Entities
 
-In Rails, our models are our chief entities. In Afterburner, our entities share some similarities to models, but they don't save like ActiveModels do in Rails. Instead, they're utterly unconcerned with it; they just accept data and manipulate it. These entities reside in `/core/entities`. They're also further subdivided by their function, so all the entities pertaining to menus are in `/core/entities/menu`, for example.
+In Rails, our models are our chief entities. In Afterburner, our entities share some similarities to models, but they don't save like ActiveRecords do in Rails. Instead, they're utterly unconcerned with it; they just accept data and manipulate it. These entities reside in `/core/abc/entities`. They're also further subdivided by their function, so all the entities pertaining to menus are in `/core/abc/entities/menu`, for example.
 
 #### Interactors
 
-Inside our business logic, we also have what are called Interactions. These are use case objects. In short, though, they are Plain Old Ruby Objects (*POROs*) that take some data as arguments, transforms it into entities, maybe manipulates the entities, and then returns some data -- an entity or otherwise -- to its caller. They provide a logical way to group the functionality or use cases of Afterburner (and of your application, too) *as it relates to the business logic of the app*. Note that this is not the layer that interfaces with either user- or data-facing APIs; it just implements the sometimes-complex rules that govern the relationships between the entities. These are stored inside `/core/interactions`.
+Inside our business logic, we also have what are called Interactors. These are use case objects. In short, though, they are Plain Old Ruby Objects (*POROs*) that take some data as arguments, transforms it into entities, maybe manipulates the entities, and then returns some data -- an entity or otherwise -- to its caller. They provide a logical way to group the functionality or use cases of Afterburner (and of your application, too) *as it relates to the business logic of the app*. Note that this is not the layer that interfaces with either user- or data-facing APIs; it just implements the sometimes-complex rules that govern the relationships between the entities. These are stored inside `/core/abc/interactors`.
 
 ### Delivery
 
@@ -125,7 +125,7 @@ We have several default sections in Afterburner:
 #### Persistence
 
 This deals with saving data so that it can be reused later. This includes a few subsections:
- 
+
 ##### Repositories
 
 Repositories are objects that deal with taking raw data and converting it into a format appropriate for the database, as well as persisting it; and vice versa, too. This is one of the spots where you'll frequently work when you create custom extensions. They are kept in `adapters/persistence/repositories`.
