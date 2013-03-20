@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %title= "Afterburner CMS"
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "", :name => "author" }
+    =stylesheet_link_tag "application"
+  %body
+    %header
+      %h1= "Company Name"
+
+    %section
+      =yield
+
+    %footer
+      %p= "Copyright #{Time.zone.now.year}"
