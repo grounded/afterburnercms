@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'abc-core', Abc::VERSION
   s.add_dependency 'abc-adapters', Abc::VERSION
 
-
-  s.add_dependency "neat", "~> 1.2.0"
   s.add_dependency "bourbon", "~> 3.1.1"
+  s.add_dependency "neat", "~> 1.2.0"
 end
