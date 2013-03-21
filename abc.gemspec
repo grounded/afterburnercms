@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split($/)
   s.test_files = s.files.grep(%r{^(spec)/})
 
-  s.required_ruby_version = '>= 1.9.3' # that's right.
+  s.required_ruby_version = Abc::REQUIRED_RUBY_VERSION
 end

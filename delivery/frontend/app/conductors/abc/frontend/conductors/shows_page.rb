@@ -1,4 +1,4 @@
-require 'abc'
+require 'afterburner/framework/base_conductor'
 require 'abc/html/page_presenter'
 require 'entities/pages/page'
 require 'adapters/persistence/repositories/page'
@@ -8,7 +8,7 @@ require 'ostruct'
 module Abc
   module Frontend
     module Conductors
-      class ShowsPage < ::Abc::BaseConductor
+      class ShowsPage < ::Afterburner::Framework::BaseConductor
 
         # Wraps and organizes response to controller.
         def to_response

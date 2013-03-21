@@ -1,9 +1,9 @@
-require 'abc'
+require 'afterburner/framework/base_interactor'
 require 'entities/pages/page'
 
 module Abc
   module Interactors
-    class BuildsPage < Abc::BaseInteractor
+    class BuildsPage < ::Afterburner::Framework::BaseInteractor
       attr_reader :page
 
       def to_response

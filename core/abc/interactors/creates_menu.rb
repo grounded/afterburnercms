@@ -1,10 +1,10 @@
-require 'abc'
+require 'afterburner/framework/base_interactor'
 require 'entities/menu/menu'
 require 'entities/menu/menu_entry'
 
 module Abc
   module Interactors
-    class CreatesMenu < Abc::BaseInteractor
+    class CreatesMenu < ::Afterburner::Framework::BaseInteractor
       attr_reader :menu
 
       def to_response
