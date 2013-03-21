@@ -1,14 +1,11 @@
-require 'entities/pages/page'
-require_relative '../../../presenters/abc/page_presenter' # Need to do load path manip?
-
+require_relative '../../../conductors/pages/fetches_pages'
 module Abc
   module Backend
     class PagesController < ApplicationController
       def index
-        pages = repo.search({})
-        pages = pages.map{|p| Abc::Entities::Page.new(p[:title]) }
-        #pages = [Abc::Entities::Page.new('First Page')] # Get these from somewhere
-        @pages = pages.map{|p| Abc::Presenters::PagePresenter.new(p) }
+        pages = Abc::Conductors::Pages::FetchesPages.call({})
+        presenter = Abc::Presenters::PagePresenter
+        @pages = pages.map{|p| presenter.new(p) }
       end
 
       def new
