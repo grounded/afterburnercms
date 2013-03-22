@@ -1,0 +1,6 @@
+%h2 New Page
+
+= form_tag pages_path do
+  %label{ for: 'title' } Title
+  = text_field_tag :title
+  = submit_tag "Create Page"

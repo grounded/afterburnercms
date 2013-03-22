@@ -9,7 +9,7 @@ module Abc
       def to_response
         page
       end
-      
+
       protected
       def initialize(data, options = {})
         @page = Entities::Page.new(data[:title])
