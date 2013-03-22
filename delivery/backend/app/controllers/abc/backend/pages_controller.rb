@@ -1,11 +1,11 @@
-require_relative '../../../conductors/pages/fetches_pages'
+require 'ostruct'
+require 'pages/fetches_pages'
+
 module Abc
   module Backend
     class PagesController < ApplicationController
       def index
-        pages = Abc::Conductors::Pages::FetchesPages.call({})
-        presenter = Abc::Presenters::PagePresenter
-        @pages = pages.map{|p| presenter.new(p) }
+        @data = OpenStruct.new(Abc::Conductors::Pages::FetchesPages.call(params))
       end
 
       def new

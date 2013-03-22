@@ -1,31 +1,55 @@
-require 'spec_helper'
-require_relative '../../app/conductors/pages/fetches_pages.rb'
+require 'tiny_spec_helper'
+require 'pages/fetches_pages.rb'
+require 'ostruct'
 
 module Abc
   module Conductors
     module Pages
       describe FetchesPages do
-        let(:page1) { create_page({:title => "Afterburner CMS"}) }
-        let(:page2) { create_page({:title => "Afterburner CMS 2"}) }
-        let(:result) { FetchesPages.call({}, {}) }
 
-        it "returns an array of pages" do
-          FetchesPages.any_instance.stub(:data).and_return([page1, page2])
-          FetchesPages.call({}).length.should == 2
+        let(:mocks) {{ :presenter_classes => {:pages => Presenter },
+                       :interactor_classes => {:pages => Interactor },
+                       :repository_classes => {:pages => Repository }}}
+
+        let(:result) { Abc::Conductors::Pages::FetchesPages.call({}, mocks) }
+        let(:fake) { Class }
+
+        before do
+          %w(Presenter Repository Interactor).each {|t| stub_const(t, fake.new) }
+          Presenter.stub!(:new).and_return(fake.new)
+          klass = ::Abc::Conductors::Pages::FetchesPages
+          @conductor = klass.send(:new, {}, mocks)
         end
 
-        it "pulls the correct data from the repository" do
-          result.each do |page|
-            page.should be_kind_of Abc::Entities::Page
+        describe "return" do
+          before do
+            @conductor.stub!(:pages).and_return([fake.new])
+          end
+
+          it "is a hash of data" do
+            expect(@conductor.to_response).to be_kind_of Hash
+          end
+
+          it "includes pages" do
+            @conductor.to_response.keys.should include(:pages)
+          end
+        end
+
+        describe "data" do
+          it "comes from the repository" do
+            Repository.should_receive(:search).with({}).and_return([fake.new])
+            @conductor.send(:data)
+          end
+
+          it "is handed to an interactor" do
+            data = double "data"
+            @conductor.stub!(:data).and_return([data])
+            Interactor.should_receive(:call).with(data).and_return(data)
+            @conductor.send(:pages)
           end
         end
 
       end
     end
   end
-end
-
-def create_page(attributes={})
-  repo = Abc::Adapters::Persistence::Repositories::Page
-  repo.store(attributes)
 end
