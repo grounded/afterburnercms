@@ -1,7 +1,7 @@
 require 'afterburner/framework/base_conductor'
 require 'interactors/pages/builds_page'
 require 'abc-adapters'
-require 'abc/page_presenter'
+require 'presenters/abc/page_presenter'
 
 module Abc
   module Conductors

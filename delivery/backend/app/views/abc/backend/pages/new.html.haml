@@ -3,4 +3,6 @@
 = form_tag pages_path do
   %label{ for: 'title' } Title
   = text_field_tag :title
+  %label{ for: 'body' } Body
+  = text_area_tag :body
   = submit_tag "Create Page"

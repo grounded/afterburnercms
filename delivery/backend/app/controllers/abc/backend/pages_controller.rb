@@ -1,5 +1,5 @@
 require 'ostruct'
-require 'pages/fetches_pages'
+require 'conductors/pages/fetches_pages'
 require 'pages/accepts_page_form'
 
 module Abc

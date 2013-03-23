@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "adapters core delivery/backend delivery/frontend"
+echo "adapters core delivery/backend delivery/frontend delivery/shared"
