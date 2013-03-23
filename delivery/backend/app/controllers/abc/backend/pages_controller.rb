@@ -1,5 +1,6 @@
 require 'ostruct'
 require 'pages/fetches_pages'
+require 'pages/accepts_page_form'
 
 module Abc
   module Backend
@@ -12,14 +13,8 @@ module Abc
       end
 
       def create
-        new_page = Abc::Entities::Page.new(params[:title])
-        repo.store(new_page.to_hash)
+        @data = OpenStruct.new(Abc::Conductors::Pages::AcceptsPageForm.call(params))
         redirect_to pages_path
-      end
-
-      private
-      def repo
-        Abc::Adapters::Persistence::Repositories::Page
       end
     end
   end

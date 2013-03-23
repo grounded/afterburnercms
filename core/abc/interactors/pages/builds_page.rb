@@ -12,7 +12,7 @@ module Abc
 
       protected
       def initialize(data, options = {})
-        @page = Entities::Page.new(data[:title])
+        @page = Entities::Page.new(data[:title], data[:body])
       end
     end
   end
