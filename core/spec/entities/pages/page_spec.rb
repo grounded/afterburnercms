@@ -5,14 +5,19 @@ module Abc
   module Entities
     describe Page do
       let(:title) { "Afterburner" }
-      subject { Page.new(title) }
+      let(:body) { "Some body text" }
+      subject { Page.new(title, body) }
 
       it "has a title" do
         subject.title.should == title
       end
 
+      it "has a body" do
+        subject.body.should == body
+      end
+
       it "can be hashified" do
-        subject.to_hash.should == {:title => title}
+        subject.to_hash.should == {:title => title, :body => body}
       end
     end
   end
