@@ -1,0 +1,29 @@
+source "http://rubygems.org"
+
+gemspec
+
+group :test do
+  gem 'rspec'
+  unless ENV['TRAVIS']
+    gem 'simplecov'
+  end
+end
+
+group :development, :test do
+  unless ENV['TRAVIS']
+    gem 'pry'
+    gem 'pry-nav'
+    gem 'guard-shell'
+    gem 'rb-fsevent', '~> 0.9', :platform => :ruby
+  end
+end
+
+group :development do
+  gem 'yard', "~> 0.8.4.1"
+  gem 'rdoc'
+  gem 'kramdown'
+end
+
+gem 'abc', :path => '../../'
+gem 'abc-core', :path => '../../core'
+gem 'abc-adapters', :path => '../../adapters'

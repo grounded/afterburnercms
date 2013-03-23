@@ -26,6 +26,7 @@ describe "Pages Interface" do
 
     it "shows a form" do
       page.should have_field('Title')
+      page.should have_field('Body')
     end
   end
 
