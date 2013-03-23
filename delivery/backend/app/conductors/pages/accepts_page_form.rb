@@ -6,11 +6,9 @@ require 'abc/page_presenter'
 module Abc
   module Conductors
     module Pages
-      class FetchesPages < ::Afterburner::Framework::BaseConductor
-
-
+      class AcceptsPageForm < ::Afterburner::Framework::BaseConductor
         def to_response
-          {:pages => pages.map {|p| presenters.pages.new(p)}}
+          { page: presenters.pages.new(saved_page) }
         end
 
         protected
@@ -33,14 +31,15 @@ module Abc
           }
         end
 
-        def pages
-          @pages ||= data.map {|p| interactors.pages.call(p) }
+        def page
+          interactors.pages.call(params)
         end
 
-        def data
-          repositories.pages.search({})
+        def saved_page
+          repositories.pages.store(page.to_hash)
         end
       end
     end
   end
 end
+
