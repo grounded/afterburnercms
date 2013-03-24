@@ -49,7 +49,7 @@ group :assets do
 end
 
 gem 'haml', github: 'haml/haml', branch: 'stable'
-gem 'haml-rails', github: 'knewter/haml-rails', branch: 'rails4-gem-version-fix'
+gem 'haml-rails', github: 'indirect/haml-rails'
 
 gem 'abc', :path => '../../'
 gem 'abc-core', :path => '../../core'
