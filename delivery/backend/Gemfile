@@ -14,7 +14,7 @@ group :test do
   unless ENV['TRAVIS']
     gem 'simplecov'
   end
-  gem 'capybara'
+  gem 'capybara', github: 'knewter/capybara', branch: 'rails4-gem-version-fix'
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
   end
@@ -25,7 +25,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'combustion', github: 'pat/combustion'
+  gem 'combustion', github: 'knewter/combustion', branch: 'rails4-gem-version-fix'
   unless ENV['TRAVIS']
     gem 'pry'
     gem 'pry-nav'
@@ -49,6 +49,7 @@ group :assets do
 end
 
 gem 'haml', github: 'haml/haml', branch: 'stable'
+gem 'haml-rails', github: 'knewter/haml-rails', branch: 'rails4-gem-version-fix'
 
 gem 'abc', :path => '../../'
 gem 'abc-core', :path => '../../core'
