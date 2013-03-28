@@ -5,11 +5,9 @@ module Abc
     module Persistence
       module Repositories
         class Page < Base
-          class << self
-            protected
-            def kind
-              :page
-            end
+          protected
+          def kind
+            :page
           end
         end
       end

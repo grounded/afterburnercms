@@ -6,7 +6,7 @@ module Abc
       module Repositories
         describe Page do
           it "should be of kind page" do
-            Page.send(:kind).should == :page
+            subject.send(:kind).should == :page
           end
         end
       end
