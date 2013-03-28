@@ -10,27 +10,24 @@ module Abc
     module Persistence
       module Repositories
         class Base
-          class << self
+          # Serialize a hash to the datastore.
+          def store(values)
+            Hyperion.save({:kind => kind}.merge(values))
+          end
 
-            # Serialize a hash to the datastore.
-            def store(values)
-              Hyperion.save({:kind => kind}.merge(values))
-            end
+          # Find an entity by its key.
+          def find(key)
+            Hyperion.find_by_key(key)
+          end
 
-            # Find an entity by its key.
-            def find(key)
-              Hyperion.find_by_key(key)
-            end
+          # Search for an entity.
+          def search(options = {})
+            Hyperion.find_by_kind(kind, options)
+          end
 
-            # Search for an entity.
-            def search(options = {})
-              Hyperion.find_by_kind(kind, options)
-            end
-
-            protected
-            def kind
-              raise "Kind was not specified in repository."
-            end
+          protected
+          def kind
+            raise NotImplementedError, "Kind was not specified in repository."
           end
         end
       end
