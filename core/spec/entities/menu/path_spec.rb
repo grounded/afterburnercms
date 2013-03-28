@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'abc/entities/menu/path'
+require 'abc/entities/menus/path'
 
 module Abc
   describe Path do

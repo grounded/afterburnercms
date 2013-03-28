@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'abc/entities/menu/menu_entry'
+require 'abc/entities/menus/menu_entry'
 
 module Abc
   describe MenuEntry do
