@@ -44,6 +44,6 @@ describe "Pages Interface" do
 end
 
 def create_page(attributes={})
-  repo = Abc::Adapters::Persistence::Repositories::Page
+  repo = Abc::Adapters::Persistence::Repositories::Page.new
   repo.store(attributes)
 end

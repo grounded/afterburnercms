@@ -1,5 +1,5 @@
 require 'tiny_spec_helper'
-require 'interactors/creates_menu'
+require 'entities/menus/menu'
 
 describe "Menu" do
   describe "when using an HTML presenter" do
@@ -8,7 +8,7 @@ describe "Menu" do
     }
     let(:menu_entries) { [{:title => "One", :children => children_for_one}] }
 
-    let(:menu) { Abc::Interactors::CreatesMenu.call(menu_entries) }
+    let(:menu) { Abc::Menu.new(menu_entries) }
     let(:present) { Abc::Html::MenuPresenter.new(menu).to_html }
 
     it "renders properly" do

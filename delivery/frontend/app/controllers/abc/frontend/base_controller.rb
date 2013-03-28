@@ -8,7 +8,7 @@ module Abc
       # @return [Hash] An associative array to be used in conjunction with
       #   `present`.
       def presenters
-        @presenter_classes ||= Hash.new.freeze
+        @presenters ||= Hash.new.freeze
       end
 
       # Does three things:
@@ -28,7 +28,7 @@ module Abc
         hsh = data.merge(data) do |key, oldval, _|
           presenters.has_key?(key) ? presenters[key].new(oldval) : oldval
         end
-        
+
         @data = OpenStruct.new hsh
       end
     end

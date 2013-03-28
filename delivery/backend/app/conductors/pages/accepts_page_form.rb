@@ -1,5 +1,4 @@
 require 'afterburner/framework/base_conductor'
-require 'interactors/pages/builds_page'
 require 'abc-adapters'
 require 'presenters/abc/page_presenter'
 
@@ -7,8 +6,15 @@ module Abc
   module Conductors
     module Pages
       class AcceptsPageForm < ::Afterburner::Framework::BaseConductor
+
+        def call
+          page_repository.store page.to_hash
+
+          to_response
+        end
+
         def to_response
-          { page: presenters.pages.new(saved_page) }
+          { page: page_presenter.new(@saved_page) }
         end
 
         protected
@@ -18,25 +24,32 @@ module Abc
         def initialize(params, options = {})
           super
 
-          self.interactors  = OpenStruct.new(self.options[:interactor_classes])
-          self.repositories = OpenStruct.new(self.options[:repository_classes])
-          self.presenters   = OpenStruct.new(self.options[:presenter_classes])
+          self.repositories = OpenStruct.new(self.options[:repositories])
+          self.presenters   = OpenStruct.new(self.options[:presenters])
         end
 
         def defaults
           {
-            :interactor_classes => { :pages => Abc::Interactors::BuildsPage },
-            :repository_classes => { :pages => Abc::Adapters::Persistence::Repositories::Page },
-            :presenter_classes  => { :pages => Abc::Presenters::PagePresenter }
+            :repositories => { :pages => Adapters::Persistence::Repositories::Page.new },
+            :presenters  => { :pages => Presenters::PagePresenter }
           }
         end
 
         def page
-          interactors.pages.call(params)
+          Entities::Page.new params
         end
 
-        def saved_page
-          repositories.pages.store(page.to_hash)
+        def save_page
+          @saved_page = page_repository.store page.to_hash
+        end
+
+        private
+        def page_repository
+          repositories.pages
+        end
+
+        def page_presenter
+          presenters.pages
         end
       end
     end

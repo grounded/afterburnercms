@@ -1,13 +1,12 @@
 require 'afterburner/framework/base_conductor'
-require 'interactors/pages/builds_page'
 require 'abc-adapters'
+require 'entities/pages/page'
 require 'presenters/abc/page_presenter'
 
 module Abc
   module Conductors
     module Pages
       class FetchesPages < ::Afterburner::Framework::BaseConductor
-
 
         def to_response
           {:pages => pages.map {|p| presenters.pages.new(p)}}
@@ -20,25 +19,28 @@ module Abc
         def initialize(params, options = {})
           super
 
-          self.interactors  = OpenStruct.new(self.options[:interactor_classes])
-          self.repositories = OpenStruct.new(self.options[:repository_classes])
-          self.presenters   = OpenStruct.new(self.options[:presenter_classes])
+          self.repositories = OpenStruct.new(self.options[:repositories])
+          self.presenters   = OpenStruct.new(self.options[:presenters])
         end
 
         def defaults
           {
-            :interactor_classes => { :pages => Abc::Interactors::BuildsPage },
-            :repository_classes => { :pages => Abc::Adapters::Persistence::Repositories::Page },
-            :presenter_classes  => { :pages => Abc::Presenters::PagePresenter }
+            :repositories => { :pages => Abc::Adapters::Persistence::Repositories::Page.new },
+            :presenters  => { :pages => Abc::Presenters::PagePresenter }
           }
         end
 
         def pages
-          @pages ||= data.map {|p| interactors.pages.call(p) }
+          @pages ||= data.map {|p| Entities::Page.new(p) }
         end
 
         def data
-          repositories.pages.search({})
+          page_repository.search({})
+        end
+
+        private
+        def page_repository
+          repositories.pages
         end
       end
     end

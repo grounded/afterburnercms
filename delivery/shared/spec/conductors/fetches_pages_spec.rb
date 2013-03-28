@@ -7,9 +7,9 @@ module Abc
     module Pages
       describe FetchesPages do
 
-        let(:mocks) {{ :presenter_classes => {:pages => Presenter },
+        let(:mocks) {{ :presenters => {:pages => Presenter },
                        :interactor_classes => {:pages => Interactor },
-                       :repository_classes => {:pages => Repository }}}
+                       :repositories => {:pages => Repository }}}
 
         let(:result) { Abc::Conductors::Pages::FetchesPages.call({}, mocks) }
         let(:fake) { Class }
