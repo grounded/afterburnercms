@@ -1,5 +1,5 @@
 require 'ostruct'
-require 'abc/frontend/conductors/shows_page'
+require 'conductors/pages/shows_page'
 
 require 'abc/html/page_presenter'
 require 'adapters/persistence/repositories/page'
@@ -8,7 +8,7 @@ module Abc
   module Frontend
     class PagesController < BaseController
       def show
-        present Conductors::ShowsPage.new(params, :repositories => repositories).call
+        present Conductors::Pages::ShowsPage.new(params, :repositories => repositories).call
       end
 
       protected
@@ -17,7 +17,7 @@ module Abc
       end
 
       def presenters
-        @presenters ||= {:page => Presenters::PagePresenter}
+        @presenters ||= {:page => Html::PagePresenter}
       end
 
     end
