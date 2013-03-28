@@ -3,9 +3,9 @@ module Abc
     class Page
       attr_reader :title, :body
 
-      def initialize(title, body)
-        @title = title
-        @body = body
+      def initialize(attributes)
+        @title = attributes[:title]
+        @body = attributes[:body]
       end
 
       def to_hash

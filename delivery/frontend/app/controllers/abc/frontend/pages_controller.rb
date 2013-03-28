@@ -1,12 +1,25 @@
 require 'ostruct'
 require 'abc/frontend/conductors/shows_page'
 
+require 'abc/html/page_presenter'
+require 'adapters/persistence/repositories/page'
+
 module Abc
   module Frontend
     class PagesController < BaseController
       def show
-        @data = OpenStruct.new(::Abc::Frontend::Conductors::ShowsPage.call(params))
+        present Conductors::ShowsPage.new(params, :repositories => repositories).call
       end
+
+      protected
+      def repositories
+        @repositories ||= {:page => Adapters::Persistence::Repositories::Page.new}
+      end
+      
+      def presenters
+        @presenter_classes ||= {:page => Presenters::PagePresenter}
+      end
+
     end
   end
 end

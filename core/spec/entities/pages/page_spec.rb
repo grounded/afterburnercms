@@ -6,7 +6,7 @@ module Abc
     describe Page do
       let(:title) { "Afterburner" }
       let(:body) { "Some body text" }
-      subject { Page.new(title, body) }
+      subject { Page.new({:title => title, :body => body}) }
 
       it "has a title" do
         subject.title.should == title

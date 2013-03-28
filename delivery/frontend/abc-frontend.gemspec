@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'haml-rails'
 
-  s.add_dependency 'afterburner', Abc::VERSION
+  s.add_dependency 'afterburner'
   s.add_dependency 'abc-core', Abc::VERSION
   s.add_dependency 'abc-adapters', Abc::VERSION
 

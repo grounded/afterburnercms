@@ -3,15 +3,26 @@ require 'abc/entities/menu/menu'
 
 module Abc
   describe Menu do
-    it "lists nothing when empty" do
-      subject.entries.should be_empty
+    let(:menu_entries) do
+      [{:title => "One", :children => [{ :title => "One first child"}]}]
     end
 
-    it "lists root nodes" do
-      entry1 = "node"
-      entry2 = "node2"
-      subject.entries = [entry1, entry2]
-      subject.entries.should == [entry1, entry2]
+    context "without arguments" do
+      it "lists nothing when empty" do
+        subject.entries.should be_empty
+      end
+    end
+
+    context "with arguments" do
+      subject { Menu.new(menu_entries) }
+
+      it "adds menu entries to menu" do
+        expect(subject.entries.first).to be_kind_of(MenuEntry)
+      end
+
+      it "lists only root nodes" do
+        subject.entries.count.should == 1
+      end
     end
   end
 end

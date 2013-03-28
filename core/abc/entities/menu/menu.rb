@@ -1,3 +1,5 @@
+require_relative 'menu_entry'
+
 module Abc
 
   # This is the actual main menu class. It holds logic for spitting out menus.
@@ -8,8 +10,10 @@ module Abc
     # This holds a tree of entries.
     attr_accessor :entries
 
-    def initialize
-      self.entries = []
+    def initialize(entries = [])
+      self.entries = entries.map do |entry|
+        MenuEntry.new(entry[:title], entry[:children])
+      end
     end
 
   end

@@ -18,3 +18,4 @@ group :development do
 end
 
 gem 'abc', :path => '../'
+gem 'afterburner', :github => 'grounded/afterburner'
