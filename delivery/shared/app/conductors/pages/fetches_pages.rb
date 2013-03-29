@@ -9,27 +9,10 @@ module Abc
       class FetchesPages < ::Afterburner::Framework::BaseConductor
 
         def to_response
-          {:pages => pages.map {|p| presenters.pages.new(p)}}
+          pages
         end
 
         protected
-        attr_accessor :params, :options, :errors,
-                      :interactors, :repositories, :presenters
-
-        def initialize(params, options = {})
-          super
-
-          self.repositories = OpenStruct.new(self.options[:repositories])
-          self.presenters   = OpenStruct.new(self.options[:presenters])
-        end
-
-        def defaults
-          {
-            :repositories => { :pages => Abc::Adapters::Persistence::Repositories::Page.new },
-            :presenters  => { :pages => Abc::Presenters::PagePresenter }
-          }
-        end
-
         def pages
           @pages ||= data.map {|p| Entities::Page.new(p) }
         end
@@ -40,7 +23,7 @@ module Abc
 
         private
         def page_repository
-          repositories.pages
+          repositories.page
         end
       end
     end
