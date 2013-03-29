@@ -27,3 +27,4 @@ end
 gem 'abc', :path => '../../'
 gem 'abc-core', :path => '../../core'
 gem 'abc-adapters', :path => '../../adapters'
+gem 'afterburner', :github => 'grounded/afterburner'

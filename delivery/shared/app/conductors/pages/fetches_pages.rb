@@ -8,7 +8,7 @@ module Abc
     module Pages
       class FetchesPages < ::Afterburner::Framework::BaseConductor
 
-        def to_response
+        def call
           pages
         end
 
