@@ -14,11 +14,11 @@ module Abc
 
       protected
       def repositories
-        @repositories ||= {:pages => Adapters::Persistence::Repositories::Page.new}
+        @repositories ||= {:page => Adapters::Persistence::Repositories::Page.new}
       end
 
       def presenters
-        @presenters ||= {:pages => Html::PagePresenter}
+        @presenters ||= {:page => Html::PagePresenter}
       end
 
     end

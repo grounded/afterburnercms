@@ -24,16 +24,16 @@ module Abc
 
       protected
       def repositories
-        @repositories ||= {:pages => Adapters::Persistence::Repositories::Page.new}
+        @repositories ||= {:page => Adapters::Persistence::Repositories::Page.new}
       end
 
       def presenters
-        @presenters ||= {:pages => Html::PagePresenter}
+        @presenters ||= {:page => Html::PagePresenter}
       end
 
       def present(data)
         hsh = data.merge(data) do |key, pages, _|
-          pages.map { |page| presenters[:pages].new(page) }
+          pages.map { |page| presenters[:page].new(page) }
         end
 
         @data = OpenStruct.new hsh

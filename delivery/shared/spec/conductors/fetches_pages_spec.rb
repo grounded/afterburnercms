@@ -8,7 +8,7 @@ module Abc
       describe FetchesPages do
 
         let(:mocks) do
-          {:repositories => {:pages => Repository }}
+          {:repositories => {:page => Repository }}
         end
         let(:params) { {} }
         let(:conductor) { FetchesPages.new(params, mocks) }

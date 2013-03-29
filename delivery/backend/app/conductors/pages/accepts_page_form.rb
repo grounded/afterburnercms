@@ -17,7 +17,7 @@ module Abc
         def defaults
           {
             :repositories => {
-              :pages => Adapters::Persistence::Repositories::Page.new
+              :page => Adapters::Persistence::Repositories::Page.new
             }
           }
         end
@@ -32,7 +32,7 @@ module Abc
 
         private
         def page_repository
-          repositories.pages
+          repositories.page
         end
       end
     end

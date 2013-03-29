@@ -8,7 +8,7 @@ module Abc
         let(:repository)  { double "repository" }
         subject {
           ShowsPage.new({:id => 1}, {
-            :repositories => {:pages => repository}
+            :repositories => {:page => repository}
           })
         }
 

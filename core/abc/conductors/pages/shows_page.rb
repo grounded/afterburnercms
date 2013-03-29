@@ -26,7 +26,7 @@ module Abc
 
         private
         def page_repository
-          repositories.pages
+          repositories.page
         end
       end
     end
