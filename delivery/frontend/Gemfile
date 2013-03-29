@@ -55,6 +55,7 @@ gem 'afterburner', :github => 'grounded/afterburner'
 gem 'abc', :path => '../../'
 gem 'abc-core', :path => '../../core'
 gem 'abc-adapters', :path => '../../adapters'
+gem 'abc-delivery-shared', :path => '../shared'
 gem 'afterburner', :github => 'grounded/afterburner'
 
 gem "bourbon", "~> 3.1.1"

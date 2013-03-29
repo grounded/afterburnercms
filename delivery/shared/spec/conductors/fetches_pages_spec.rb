@@ -1,7 +1,6 @@
 require 'tiny_spec_helper'
 require 'pages/fetches_pages'
 require 'ostruct'
-require 'pry'
 
 module Abc
   module Conductors
@@ -9,31 +8,26 @@ module Abc
       describe FetchesPages do
 
         let(:mocks) do
-          {
-            :presenters => {:pages => Presenter },
-            :repositories => {:pages => Repository }
-          }
+          {:repositories => {:pages => Repository }}
         end
         let(:params) { {} }
         let(:conductor) { FetchesPages.new(params, mocks) }
         let(:fake) { Class }
 
-        before do
-          %w(Presenter Repository).each {|t| stub_const(t, fake.new) }
-          Presenter.should_receive(:new).and_return(fake.new)
-        end
+        before { stub_const 'Repository', fake.new }
 
         describe "return" do
+          let(:page) { fake.new }
           before do
-            conductor.stub(:pages).and_return [fake.new]
+            conductor.stub(:pages).and_return [page]
           end
 
           it "is a hash of data" do
             expect(conductor.call).to be_kind_of Hash
           end
 
-          it "includes pages" do
-            conductor.to_response[:pages].should be_present
+          it "includes page entities" do
+            conductor.call[:pages].should include(page)
           end
         end
 

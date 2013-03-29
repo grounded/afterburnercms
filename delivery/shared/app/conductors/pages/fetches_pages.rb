@@ -1,7 +1,6 @@
 require 'afterburner/framework/base_conductor'
 require 'abc-adapters'
 require 'entities/pages/page'
-require 'presenters/abc/page_presenter'
 
 module Abc
   module Conductors
@@ -9,7 +8,7 @@ module Abc
       class FetchesPages < ::Afterburner::Framework::BaseConductor
 
         def call
-          pages
+          {:pages => pages}
         end
 
         protected
@@ -23,7 +22,7 @@ module Abc
 
         private
         def page_repository
-          repositories.page
+          repositories.pages
         end
       end
     end

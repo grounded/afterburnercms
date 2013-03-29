@@ -1,6 +1,5 @@
 require 'afterburner/framework/base_conductor'
 require 'abc-adapters'
-require 'presenters/abc/page_presenter'
 
 module Abc
   module Conductors
@@ -8,30 +7,18 @@ module Abc
       class AcceptsPageForm < ::Afterburner::Framework::BaseConductor
 
         def call
-          page_repository.store page.to_hash
+          save_page
 
-          to_response
-        end
-
-        def to_response
-          { page: page_presenter.new(@saved_page) }
+          { page: @saved_page }
         end
 
         protected
-        attr_accessor :params, :options, :errors,
-                      :interactors, :repositories, :presenters
-
-        def initialize(params, options = {})
-          super
-
-          self.repositories = OpenStruct.new(self.options[:repositories])
-          self.presenters   = OpenStruct.new(self.options[:presenters])
-        end
 
         def defaults
           {
-            :repositories => { :pages => Adapters::Persistence::Repositories::Page.new },
-            :presenters  => { :pages => Presenters::PagePresenter }
+            :repositories => {
+              :pages => Adapters::Persistence::Repositories::Page.new
+            }
           }
         end
 
@@ -46,10 +33,6 @@ module Abc
         private
         def page_repository
           repositories.pages
-        end
-
-        def page_presenter
-          presenters.pages
         end
       end
     end

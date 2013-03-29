@@ -43,7 +43,7 @@ describe "Pages Interface" do
   end
 end
 
-def create_page(attributes={})
+def create_page(attributes = {})
   repo = Abc::Adapters::Persistence::Repositories::Page.new
   repo.store(attributes)
 end

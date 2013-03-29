@@ -6,7 +6,11 @@ module Abc
     module Pages
       describe ShowsPage do
         let(:repository)  { double "repository" }
-        subject { ShowsPage.new({:id => 1}, {:repositories => {:page => repository}}) }
+        subject {
+          ShowsPage.new({:id => 1}, {
+            :repositories => {:pages => repository}
+          })
+        }
 
         it "returns a hash" do
           subject.stub!(:build_page)
