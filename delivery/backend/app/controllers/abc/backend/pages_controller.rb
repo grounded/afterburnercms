@@ -30,14 +30,6 @@ module Abc
       def presenters
         @presenters ||= {:page => Html::PagePresenter}
       end
-
-      def present(data)
-        hsh = data.merge(data) do |key, pages, _|
-          pages.map { |page| presenters[:page].new(page) }
-        end
-
-        @data = OpenStruct.new hsh
-      end
     end
   end
 end

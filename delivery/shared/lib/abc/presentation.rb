@@ -1,3 +1,5 @@
+require 'active_support/core_ext/string'
+
 module Abc
   module Presentation
     # A set of key/value pairs that specify mappings of presenters to
@@ -24,7 +26,13 @@ module Abc
     # @param hsh [Hash] Data to be presented to the view
     def present(data)
       hsh = data.merge(data) do |key, oldval, _|
-        presenters.has_key?(key) ? presenters[key].new(oldval) : oldval
+        if presenters.has_key?(key)
+          presenters[key].new(oldval)
+        elsif oldval.is_a?(Array) && presenters.has_key?(key.to_s.singularize)
+          oldval.map {|item| presenters[key.to_s.singularize].new(item) }
+        else
+          oldval
+        end
       end
 
       @data = OpenStruct.new hsh

@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'abc',           Abc::VERSION
   s.add_dependency 'abc-core',      Abc::VERSION
+  s.add_dependency 'activesupport', '>= 4.0.0.beta1'
 end
