@@ -3,3 +3,4 @@
     File.join('..', 'app', pattern), File.dirname(__FILE__)
   )
 end
+require 'abc/shared/engine' if defined?(Rails)

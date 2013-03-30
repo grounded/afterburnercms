@@ -33,8 +33,8 @@ module Abc
 
         describe "data" do
           it "comes from the repository" do
-            Repository.should_receive(:search).with({}).and_return([fake.new])
-            conductor.send(:data)
+            Repository.should_receive(:search).with({}).and_return([{}])
+            conductor.call
           end
         end
 
