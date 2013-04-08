@@ -14,7 +14,7 @@ group :test do
   unless ENV['TRAVIS']
     gem 'simplecov'
   end
-  gem 'capybara', github: 'knewter/capybara', branch: 'rails4-gem-version-fix'
+  gem 'capybara'
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'
   end
