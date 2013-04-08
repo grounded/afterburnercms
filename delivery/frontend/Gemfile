@@ -25,7 +25,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'combustion', github: 'knewter/combustion', branch: 'rails4-gem-version-fix'
+  gem 'combustion', github: 'pat/combustion'
   unless ENV['TRAVIS']
     gem 'pry'
     gem 'pry-nav'
