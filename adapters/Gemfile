@@ -16,4 +16,4 @@ group :development do
   gem 'rdoc'
 end
 
-gem 'abc', :path => '../'
+gem 'abc-core', :path => '../'

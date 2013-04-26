@@ -16,12 +16,12 @@ module Abc
         # Transforms params into requests to the application, optionally
         # hitting an adapter along the way.
         def data
-          {:page => build_page}
+          {:page => find_page}
         end
 
         # Retrieve the required page from the database and construct it.
-        def build_page
-          Entities::Page.new page_repository.search(:limit => 1).first
+        def find_page
+          page_repository.search(:limit => 1).first
         end
 
         private

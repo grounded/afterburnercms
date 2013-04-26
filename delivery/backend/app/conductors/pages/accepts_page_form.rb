@@ -23,7 +23,7 @@ module Abc
         end
 
         def page
-          Entities::Page.new params
+          Entities::Pages::Page.new params
         end
 
         def save_page

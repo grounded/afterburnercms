@@ -8,15 +8,15 @@ module Abc
       class FetchesPages < ::Afterburner::Framework::BaseConductor
 
         def call
-          {:pages => pages}
+          data
         end
 
         protected
-        def pages
-          @pages ||= data.map {|p| Entities::Page.new(p) }
+        def data
+          {:pages => pages}
         end
 
-        def data
+        def pages
           page_repository.search({})
         end
 
