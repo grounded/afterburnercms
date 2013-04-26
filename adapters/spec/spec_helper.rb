@@ -7,4 +7,5 @@ unless ENV['TRAVIS']
   end
 end
 
+require 'abc-core'
 require 'abc-adapters'

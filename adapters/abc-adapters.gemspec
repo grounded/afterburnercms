@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = Abc::REQUIRED_RUBY_VERSION
 
-  s.add_dependency 'abc', "~>#{Abc::VERSION}"
+  s.add_dependency 'abc-core', "~> #{Abc::VERSION}"
   s.add_dependency 'hyperion-api'
 end

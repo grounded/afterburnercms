@@ -13,19 +13,18 @@ module Abc
         }
 
         it "returns a hash" do
-          subject.stub!(:build_page)
+          subject.stub!(:find_page)
           expect(subject.call).to be_kind_of Hash
         end
 
         it "loads from the repository" do
           repository.should_receive(:search).once.and_return [Hash.new]
-          subject.send :build_page
+          subject.send :find_page
         end
 
         it "constructs a new page entity" do
           repository.stub!(:search).and_return([Hash.new])
-          Entities::Page.should_receive(:new).once
-          subject.send :build_page
+          subject.send :find_page
         end
 
       end

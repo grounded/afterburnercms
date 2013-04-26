@@ -14,7 +14,7 @@ module Abc
 
       def new
         # Maybe?
-        # @page = Entities::Page.new
+        # @page = Entities::Pages::Page.new
       end
 
       def create
