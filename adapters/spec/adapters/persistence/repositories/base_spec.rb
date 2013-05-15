@@ -7,13 +7,13 @@ module Abc
         describe Base do
           context "without kind" do
             it "raises an error" do
-              lambda{ subject.send(:kind) }.should raise_error NotImplementedError
+              expect{ subject.send(:kind) }.to raise_error NotImplementedError
             end
           end
 
           context "without entity_class" do
             it "raises an error" do
-              lambda{ subject.send(:entity_class) }.should raise_error NotImplementedError
+              expect{ subject.send(:entity_class) }.to raise_error NotImplementedError
             end
           end
 

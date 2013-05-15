@@ -6,15 +6,13 @@ module Abc
     module Persistence
       module Repositories
         class Text < Base
-          class << self
-            protected
-            def kind
-              :text
-            end
+          protected
+          def kind
+            :text
+          end
 
-            def entity_class
-              Entities::Content::Text
-            end
+          def entity_class
+            Entities::Content::Text
           end
         end
       end

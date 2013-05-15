@@ -5,8 +5,12 @@ module Abc
     module Persistence
       module Repositories
         describe Text do
-          it "should be of kind text" do
-            Text.send(:kind).should == :text
+          it "is of kind text" do
+            subject.send(:kind).should == :text
+          end
+
+          it "defines an entity_class" do
+            expect {subject.send :entity_class}.to_not raise_exception
           end
         end
       end
